@@ -1,14 +1,25 @@
 import {PickType} from "@nestjs/swagger";
-import {Entity} from "typeorm";
+import {Column, Entity} from "typeorm";
 
 @Entity('user')
 
 export class User {
+    @Column()
     firstName!: string
+
+    @Column()
     lastName!: string
+
+    @Column()
     userName!: string
+
+    @Column()
     email!: string
+
+    @Column()
     password!: string
+
+    @Column()
     type!:string
 }
 
