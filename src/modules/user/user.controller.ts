@@ -1,34 +1,11 @@
-import {Body, Controller, Delete, Get, Param, Patch, Post} from '@nestjs/common';
-import {DeepPartial} from "typeorm";
-import {CreateUserDto} from "./entities/user";
+import {Controller} from '@nestjs/common';
+import {User, CreateUserDto} from "./entities/user";
 import {UserService} from "./user.service";
+import {CrudController} from "../../shared/crud/crud.controller";
 
 @Controller('user')
-export class UserController {
-  constructor(private readonly userService: UserService) {}
-
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.userService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: DeepPartial<CreateUserDto>) {
-    return this.userService.update(+id, updateUserDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(+id);
+export class UserController extends CrudController<User, CreateUserDto>(User, CreateUserDto){
+  constructor(private service: UserService) {
+    super(service)
   }
 }

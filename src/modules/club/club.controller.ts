@@ -1,34 +1,11 @@
-import {Body, Controller, Delete, Get, Param, Patch, Post} from '@nestjs/common';
-import {DeepPartial} from "typeorm";
-import {CreateClubDto} from "./entities/club";
+import {Controller} from '@nestjs/common';
+import {Club, CreateClubDto} from "./entities/club";
 import {ClubService} from "./club.service";
+import {CrudController} from "../../shared/crud/crud.controller";
 
 @Controller('club')
-export class ClubController {
-  constructor(private readonly clubService: ClubService) {}
-
-  @Post()
-  create(@Body() createClubDto: CreateClubDto) {
-    return this.clubService.create(createClubDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.clubService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.clubService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateClubDto: DeepPartial<CreateClubDto>) {
-    return this.clubService.update(+id, updateClubDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.clubService.remove(+id);
+export class ClubController extends CrudController<Club, CreateClubDto>(Club, CreateClubDto){
+  constructor(private service: ClubService) {
+    super(service)
   }
 }
