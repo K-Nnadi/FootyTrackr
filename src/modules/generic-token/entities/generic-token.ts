@@ -1,14 +1,27 @@
 import {PickType} from "@nestjs/swagger";
-import {Entity} from "typeorm";
+import {Column, Entity} from "typeorm";
+import {BaseDbEntity} from "@fl/base-tools/entity/baseDb.entity";
+
 
 @Entity('genericToken')
 
-export class GenericToken {
+export class GenericToken extends BaseDbEntity {
+    @Column()
     token!: string
-    type!:string
+
+    @Column()
+    type!: string
+
+    @Column()
     expiry!: string
-    userEmail?:string
+
+    @Column()
+    userEmail?: string
+
+    @Column()
     userId: string
+
 }
 
-export class CreateGenericTokenDto extends PickType(GenericToken, ["token", "type", "expiry", "userEmail", "userId"] as const) {}
+export class CreateGenericTokenDto extends PickType(GenericToken, ["token", "type", "expiry", "userEmail", "userId"] as const) {
+}

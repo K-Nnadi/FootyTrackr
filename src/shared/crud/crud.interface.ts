@@ -5,11 +5,7 @@ export interface CrudInterface<T, U> {
 
 	getAll(): Promise<T[]>
 
-	// getQuery(query: FindManyOptions<T>): Promise<T[]>;
-
-
 	getOne(id: number): Promise<T | null>
-
 
 	update(id: number, body: DeepPartial<T>): Promise<DeepPartial<T> | null>
 

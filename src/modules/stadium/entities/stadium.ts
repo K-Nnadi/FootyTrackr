@@ -1,17 +1,34 @@
 import {PickType} from "@nestjs/swagger";
-import {Entity} from "typeorm";
+import {Column, Entity} from "typeorm";
+import {BaseDbEntity} from "@fl/base-tools/entity/baseDb.entity";
+
 
 @Entity('stadium')
 
-export class Stadium {
+export class Stadium extends BaseDbEntity{
 
+    @Column()
     name!: string
+
+    @Column()
     opened!: string
-    teams!: number[]
+
+    @Column()
+    teams!: number
+
+    @Column()
     address1!: string
+
+    @Column()
     address2!: string
+
+    @Column()
     townOrCity!: string
+
+    @Column()
     postcode!: string
+
+    @Column()
     location!:string
 }
 

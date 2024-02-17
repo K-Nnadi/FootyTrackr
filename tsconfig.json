@@ -22,7 +22,13 @@
   "include": [
     "package.json",
     "tsconfig.json",
-    "src"
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "**/*spec.ts"
   ],
   "references": [
     {

@@ -1,9 +1,11 @@
 import {PickType} from "@nestjs/swagger";
 import {Column, Entity} from "typeorm";
+import {BaseDbEntity} from "@fl/base-tools/entity/baseDb.entity";
+
 
 @Entity('user')
 
-export class User {
+export class User extends BaseDbEntity{
     @Column()
     firstName!: string
 

@@ -27,19 +27,6 @@ export const ServiceBuilder = <T, U>(entity: any, createDTO: any): Type<CrudInte
             return this.service.getAll();
         }
 
-        // @Get()
-        // @ApiOperation({operationId: `getQuery`})
-        // getQuery(@Req() request: FastifyRequest,
-        //          @Query('skip', new DefaultValuePipe(0), ParseIntPipe) skip: number,
-        //          @Query('take', new DefaultValuePipe(100), ParseIntPipe) take: number,
-        //          @Query('withDeleted', new DefaultValuePipe(false), ParseBoolPipe) withDeleted: boolean,
-        //          @Query('loadEagerRelations', new DefaultValuePipe(true), ParseBoolPipe) loadEagerRelations: boolean,
-        //          @Query('transaction', new DefaultValuePipe(false), ParseBoolPipe) transaction: boolean,
-        //          @Query('comment') comment: string) {
-        //     const query = qs.parse(request.url.split('?')[1], QS_OPTIONS)
-        //     return this.service.getQuery({...query, skip, take, withDeleted, loadEagerRelations, transaction});
-        // }
-
         @Get(':id')
         @ApiOperation({operationId: `getOne`})
         getOne(@Param('id') id: number) {
