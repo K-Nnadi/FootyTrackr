@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {CreateClubDto} from "./entities/club";
+import {CreateClubDto} from "./club";
 import {DeepPartial} from "typeorm";
 
 

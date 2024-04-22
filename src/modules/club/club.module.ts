@@ -1,8 +1,16 @@
-import {Module} from '@nestjs/common';
+import {Controller, Module} from '@nestjs/common';
 import {ClubService} from './club.service';
-import {ClubController} from './club.controller';
 import {TypeOrmModule} from "@nestjs/typeorm";
-import {Club} from "./entities/club";
+import {Club, CreateClubDto} from "./club";
+import {CrudController} from "@fl/base-tools/crud/crud.controller";
+
+
+@Controller('club')
+export class ClubController extends CrudController<Club, CreateClubDto>(Club, CreateClubDto){
+  constructor(private service: ClubService) {
+    super(service)
+  }
+}
 
 @Module({
   imports: [TypeOrmModule.forFeature([Club])],

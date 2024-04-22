@@ -1,8 +1,15 @@
-import {Module} from '@nestjs/common';
+import {Controller, Module} from '@nestjs/common';
 import {LogService} from './log.service';
-import {LogController} from './log.controller';
 import {TypeOrmModule} from "@nestjs/typeorm";
-import {Log} from "./entities/log";
+import {CreateLogDto, Log} from "./log";
+import {CrudController} from "@fl/base-tools/crud/crud.controller";
+
+@Controller('log')
+export class LogController extends CrudController<Log, CreateLogDto>(Log, CreateLogDto){
+    constructor(private service: LogService) {
+        super(service)
+    }
+}
 
 @Module({
     imports: [TypeOrmModule.forFeature([Log])],

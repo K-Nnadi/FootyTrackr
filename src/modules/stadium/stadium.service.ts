@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {CreateStadiumDto} from "./entities/stadium";
+import {CreateStadiumDto} from "./stadium";
 import {DeepPartial} from "typeorm";
 
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {DeepPartial} from "typeorm";
-import {CreateLogDto} from "./entities/log";
+import {CreateLogDto} from "./log";
 
 
 @Injectable()

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {DeepPartial} from "typeorm";
-import {CreateManagerDto} from "./entities/manager";
+import {CreateManagerDto} from "./manager";
 
 
 @Injectable()

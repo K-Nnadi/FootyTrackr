@@ -1,8 +1,15 @@
-import { Module } from '@nestjs/common';
-import { StadiumService } from './stadium.service';
-import { StadiumController } from './stadium.controller';
+import {Controller, Module} from '@nestjs/common';
+import {StadiumService} from './stadium.service';
 import {TypeOrmModule} from "@nestjs/typeorm";
-import {Stadium} from "./entities/stadium";
+import {CreateStadiumDto, Stadium} from "./stadium";
+import {CrudController} from "@fl/base-tools/crud/crud.controller";
+
+@Controller('stadium')
+export class StadiumController extends CrudController<Stadium, CreateStadiumDto>(Stadium, CreateStadiumDto){
+  constructor(private service: StadiumService) {
+    super(service)
+  }
+}
 
 @Module({
   imports: [TypeOrmModule.forFeature([Stadium])],

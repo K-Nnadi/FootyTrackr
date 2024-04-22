@@ -1,8 +1,15 @@
-import {Module} from '@nestjs/common';
+import {Controller, Module} from '@nestjs/common';
 import {ManagerService} from './manager.service';
-import {ManagerController} from './manager.controller';
 import {TypeOrmModule} from "@nestjs/typeorm";
-import {Manager} from "./entities/manager";
+import {CreateManagerDto, Manager} from "./manager";
+import {CrudController} from "@fl/base-tools/crud/crud.controller";
+
+@Controller('manager')
+export class ManagerController extends CrudController<Manager, CreateManagerDto>(Manager, CreateManagerDto){
+  constructor(private service: ManagerService) {
+    super(service)
+  }
+}
 
 @Module({
   imports: [TypeOrmModule.forFeature([Manager])],

@@ -6,26 +6,12 @@ import {ClubModule} from './modules/club/club.module';
 import {LogModule} from './modules/log/log.module';
 import {GenericTokenModule} from './modules/generic-token/generic-token.module';
 import {UserModule} from "./modules/user/user.module";
-import {TypeOrmModule} from "@nestjs/typeorm";
-import {ConfigServiceProvider} from "./shared/config/configService";
-import {ConfigModule} from "@nestjs/config";
+import {CONFIG, TYPEORM_CONFIG} from "@fl/base-tools/config/config";
 
 const Modules = [StadiumModule, PlayerModule, ManagerModule, ClubModule, LogModule, GenericTokenModule, UserModule]
-export const TypeOrmConfig = TypeOrmModule.forRootAsync(
-    {
-        useClass: ConfigServiceProvider,
-        inject: [ConfigServiceProvider]
-    })
-
-export const CONFIG = ConfigModule.forRoot({
-    envFilePath: '.env',
-    isGlobal: true
-})
-
 
 @Module({
-    imports: [CONFIG, TypeOrmConfig, ...Modules],
-
+    imports: [CONFIG, TYPEORM_CONFIG, ...Modules],
 })
 export class AppModule {
 }

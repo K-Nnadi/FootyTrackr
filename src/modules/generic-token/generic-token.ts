@@ -19,7 +19,7 @@ export class GenericToken extends BaseDbEntity {
     userEmail?: string
 
     @Column()
-    userId: string
+    userId!: number
 
 }
 

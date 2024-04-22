@@ -1,9 +1,15 @@
-import {Module} from '@nestjs/common';
+import {Controller, Module} from '@nestjs/common';
 import {UserService} from './user.service';
-import {UserController} from './user.controller';
 import {TypeOrmModule} from "@nestjs/typeorm";
-import {User} from "./entities/user";
+import {CreateUserDto, User} from "./user";
+import {CrudController} from "@fl/base-tools/crud/crud.controller";
 
+@Controller('user')
+export class UserController extends CrudController<User, CreateUserDto>(User, CreateUserDto){
+  constructor(private service: UserService) {
+    super(service)
+  }
+}
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
