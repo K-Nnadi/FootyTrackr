@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "compilerOptions": {
     "declaration": true,
     "target": "es2016",
@@ -39,26 +38,4 @@
       "path": "frontend/ui"
     }
   ]
-=======
-  "extends": "../tsconfig.json",
-  "include": [
-    "package.json",
-    "tsconfig.json",
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "test",
-    "**/*spec.ts"
-  ],
-  "references": [
-    {
-      "path": "../libraries/base"
-    }
-  ],
-  "compilerOptions": {
-    "outDir": "./build"
-  }
->>>>>>> 9f831ac9dff5ac5861ee696afc764890a3188fc3
 }
