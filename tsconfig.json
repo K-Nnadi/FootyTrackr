@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "target": "es2016",
+    "module": "commonjs",
+    "allowJs": false,
+    "composite": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "noEmit": false,
+    "sourceRoot": "/",
+    "resolveJsonModule": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "types": [
+      "node"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": false
+  },
+  "include": [
+    "libraries/**/*",
+    "frontend/ui/**/*",
+    "backend/.env"
+  ],
+  "references": [
+    {
+      "path": "libraries/base"
+    },
+    {
+      "path": "backend"
+    },
+    {
+      "path": "frontend/ui"
+    }
+  ]
+}
