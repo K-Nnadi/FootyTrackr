@@ -1,4 +1,4 @@
 packages:
-  - 'libraries/**/*'
-  - 'frontend/ui/**/*'
-  - 'backend/**/*'
+  - 'libraries/*'
+  - 'frontend/ui/*'
+  - 'backend/*'
