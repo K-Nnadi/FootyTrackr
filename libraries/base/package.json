@@ -1,5 +1,8 @@
 {
   "name": "@footyTrackr/base-tools",
   "version": "1.0.0",
-  "description": "The package containing base functions"
+  "description": "The package containing base functions",
+  "scripts": {
+    "build": "tsc"
+  }
 }
