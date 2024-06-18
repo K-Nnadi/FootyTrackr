@@ -2,7 +2,7 @@
 	"name": "@footyTrackr",
 	"scripts": {
 		"dev:frontend": "pnpm --filter @my-monorepo/frontend dev",
-		"dev:backend": "pnpm --filter @my-monorepo/backend dev",
+		"dev:api": "pnpm --filter @my-monorepo/api dev",
 		"dev": "pnpm -r run dev"
 	},
 	"dependencies": {
@@ -29,7 +29,7 @@
 		"typescript": "^5.1.3"
 	},
 	"workspaces": [
-		"backend/*",
+		"api/*",
 		"@/*"
 	]
 }
