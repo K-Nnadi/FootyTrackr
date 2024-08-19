@@ -1,6 +1,6 @@
 import {PickType} from "@nestjs/swagger";
 import {Column, Entity} from "typeorm";
-import {BaseDbEntity} from "@fl/base-tools/entity/baseDb.entity";
+import {BaseDbEntity} from "@footyTrackr/base-tools/entity/baseDb.entity";
 
 
 @Entity('player')
@@ -8,19 +8,24 @@ import {BaseDbEntity} from "@fl/base-tools/entity/baseDb.entity";
 export class Player extends BaseDbEntity{
 
     @Column()
-    firstName!: string
+    name!: string
 
     @Column()
-    lastName!: string
+    nickname!: string
 
     @Column()
-    nationality!: string
+    dateOfBirth!: Date
+
+    @Column()
+    nationality!: number
 
     @Column()
     position!: string
 
     @Column()
-    currentClub!: string
+    clubId!: number
 }
 
-export class CreatePlayerDto extends PickType(Player, ["firstName", "lastName", "nationality", "position", "currentClub"] as const) {}
+
+
+export class CreatePlayerDto extends PickType(Player, ["name", "nickname", "dateOfBirth", "nationality", "position", "clubId"] as const) {}

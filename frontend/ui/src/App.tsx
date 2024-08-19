@@ -7,7 +7,7 @@ import {Router} from "./router";
 
 function App() {
     return (
-        <MantineProvider defaultColorScheme={'dark'}>
+        <MantineProvider defaultColorScheme={'light'}>
             <Router/>
         </MantineProvider>
     );

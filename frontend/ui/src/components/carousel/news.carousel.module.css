@@ -14,10 +14,10 @@
     font-family:
             Greycliff CF,
             sans-serif;
-    font-weight: 900;
+    font-weight: 800;
     color: var(--mantine-color-white);
     line-height: 1.2;
-    font-size: rem(32px);
+    font-size: 18px;
     margin-top: var(--mantine-spacing-xs);
 }
 

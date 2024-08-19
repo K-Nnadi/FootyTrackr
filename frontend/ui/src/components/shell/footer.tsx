@@ -1,11 +1,25 @@
-import { ActionIcon, AppShell, Box, Button, Flex, Grid, Group, Paper, Stack, Text, TextInput, Title } from '@mantine/core';
+import {
+    ActionIcon,
+    AppShell,
+    Box,
+    Button,
+    Container,
+    Flex,
+    Grid,
+    Group,
+    Paper,
+    Stack,
+    Text,
+    TextInput,
+    Title
+} from '@mantine/core';
 
 
 export function Footer() {
     return(
         <AppShell.Footer>
             <Paper>
-                <div>
+                <Container>
                     <Grid>
                         <Grid.Col span={{ base: 12, xs: 6 }}>
                             {/*<Grid>*/}
@@ -59,7 +73,7 @@ export function Footer() {
                             </Grid>
                         </Grid.Col>
                     </Grid>
-                </div>
+                </Container>
             </Paper>
         </AppShell.Footer>
     )

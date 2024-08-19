@@ -4,7 +4,7 @@ import {PlayerModule} from './modules/player/player.module';
 import {ManagerModule} from './modules/manager/manager.module';
 import {ClubModule} from './modules/club/club.module';
 import {LogModule} from './modules/log/log.module';
-import {GenericTokenModule} from './modules/generic-token/generic-token.module';
+import {GenericTokenModule} from './modules/generic-token/genericToken.module';
 import {UserModule} from "./modules/user/user.module";
 import {CONFIG, TYPEORM_CONFIG} from "@footyTrackr/base-tools/config/config";
 

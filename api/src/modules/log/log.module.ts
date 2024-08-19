@@ -1,10 +1,20 @@
-import {Controller, Module} from '@nestjs/common';
-import {LogService} from './log.service';
-import {TypeOrmModule} from "@nestjs/typeorm";
+import {Injectable, Module} from '@nestjs/common';
+import {InjectRepository, TypeOrmModule} from "@nestjs/typeorm";
 import {CreateLogDto, Log} from "./log";
-import {CrudController} from "@fl/base-tools/crud/crud.controller";
+import {CrudController} from "@footyTrackr/base-tools/crud/crud.controller";
+import {AuthedController} from "@footyTrackr/base-tools/decorators/controller.decorator";
+import {CrudRepoAdapter} from "@footyTrackr/base-tools/crud/crud.repo.adapter";
+import {Repository} from "typeorm";
 
-@Controller('log')
+
+@Injectable()
+class LogService extends CrudRepoAdapter<Log, CreateLogDto> {
+    constructor(@InjectRepository(Log) private entityRepo: Repository<Log>) {
+        super(entityRepo);
+    }
+}
+
+@AuthedController('log')
 export class LogController extends CrudController<Log, CreateLogDto>(Log, CreateLogDto){
     constructor(private service: LogService) {
         super(service)
@@ -16,5 +26,6 @@ export class LogController extends CrudController<Log, CreateLogDto>(Log, Create
     controllers: [LogController],
     providers: [LogService]
 })
-export class LogModule {
-}
+
+
+export class LogModule {}

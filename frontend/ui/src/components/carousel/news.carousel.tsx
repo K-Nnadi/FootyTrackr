@@ -83,11 +83,11 @@ export function NewsCarousel() {
 
 	return (
 		<Carousel
-			slideSize={mobile ? '25%' : '100%'}
+			slideSize={mobile ? '100%' : '25%'}
 			slideGap="md"
 			align="start"
 			loop
-			slidesToScroll={mobile ? 4 : 1} // Show 4 slides at a time on larger screens, 1 at a time on mobile
+			slidesToScroll={mobile ? 1 : 4} // Show 4 slides at a time on larger screens, 1 at a time on mobile
 		>
 			{slides}
 		</Carousel>

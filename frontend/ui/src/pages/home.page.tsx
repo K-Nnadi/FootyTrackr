@@ -5,23 +5,20 @@ const child = <Skeleton height={140} radius="md" animate={true} />;
 
 export function Home() {
     return(
-        <div>
+        <Container my="md" w="100%" size= "xl" >
             <h1>Home</h1>
             <p>Page with all the News</p>
 
-            <Container my="md">
-                <Grid>
-                    <Grid.Col span={{ base: 12, xs: 4 }}>{child}</Grid.Col>
-                    <Grid.Col span={{ base: 12, xs: 8 }}>{child}</Grid.Col>
-                    <Grid.Col >{<NewsCarousel/>}</Grid.Col>
-                    <Grid.Col span={{ base: 12, xs: 8 }}>{child}</Grid.Col>
-                    <Grid.Col span={{ base: 12, xs: 4 }}>{child}</Grid.Col>
-                    <Grid.Col span={{ base: 12, xs: 3 }}>{child}</Grid.Col>
-                    <Grid.Col span={{ base: 12, xs: 3 }}>{child}</Grid.Col>
-                    <Grid.Col span={{ base: 12, xs: 6 }}>{child}</Grid.Col>
-                </Grid>
-            </Container>
-
-        </div>
+            <Grid>
+                <Grid.Col span={{base: 12, xs: 4}}>{child}</Grid.Col>
+                <Grid.Col span={{base: 12, xs: 8}}>{child}</Grid.Col>
+                <Grid.Col>{<NewsCarousel/>}</Grid.Col>
+                <Grid.Col span={{base: 12, xs: 8}}>{child}</Grid.Col>
+                <Grid.Col span={{base: 12, xs: 4}}>{child}</Grid.Col>
+                <Grid.Col span={{base: 12, xs: 3}}>{child}</Grid.Col>
+                <Grid.Col span={{base: 12, xs: 3}}>{child}</Grid.Col>
+                <Grid.Col span={{base: 12, xs: 6}}>{child}</Grid.Col>
+            </Grid>
+        </Container>
     )
 }

@@ -1,11 +1,12 @@
 import {DeepPartial, DeleteResult} from 'typeorm';
+import {FindManyOptions} from "typeorm/find-options/FindManyOptions";
 
 export interface CrudInterface<T, U> {
 	create(entity: U): Promise<T | null>
 
 	getAll(): Promise<T[]>
 
-	// getQuery(query: FindManyOptions<T>): Promise<T[]>;
+	getQuery(query: FindManyOptions<T>): Promise<T[]>;
 
 
 	getOne(id: number): Promise<T | null>

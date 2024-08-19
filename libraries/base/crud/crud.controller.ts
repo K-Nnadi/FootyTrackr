@@ -1,16 +1,56 @@
 import {DeepPartial} from 'typeorm';
-import {Body, Delete, Get, Param, Patch, Post, Type} from '@nestjs/common';
-import {ApiBody, ApiOperation} from '@nestjs/swagger';
+import {
+    Body,
+    DefaultValuePipe,
+    Delete,
+    Get,
+    Param,
+    ParseBoolPipe,
+    ParseIntPipe,
+    Patch,
+    Post,
+    Query,
+    Req,
+    Type
+} from '@nestjs/common';
+import {ApiBody, ApiOperation, ApiPropertyOptional} from '@nestjs/swagger';
 import {CrudInterface} from "./crud.interface";
+import {FastifyRequest} from "fastify";
+import {QS_OPTIONS} from "./query.options";
+import qs from 'qs';
 
 
-export interface ControllerInterface<T, U> extends Omit<CrudInterface<T, U>, "getQuery"> {
-    // getQuery(request: FastifyRequest, skip?: number, take?: number, withDeleted?: boolean, loadEagerRelations?: boolean, transaction?: boolean, comment?: string, where?: any): Promise<T[]>
+export class QueryOptions<T> {
+    @ApiPropertyOptional({type: Number})
+    skip?: number;
+    @ApiPropertyOptional({type: Number})
+    take?: number;
+    @ApiPropertyOptional({type: 'object'})
+    select?: { [P in keyof T]?: boolean };
+    @ApiPropertyOptional()
+    where?: { [P in keyof T]?: T[P] } | { [P in keyof T]?: T[P] }[];
+    @ApiPropertyOptional()
+    relations?: { [P in keyof T]?: boolean };
+    @ApiPropertyOptional()
+    order?: { [P in keyof T]?: boolean };
+    @ApiPropertyOptional()
+    withDeleted?: boolean;
+    @ApiPropertyOptional()
+    loadEagerRelations?: boolean;
+    @ApiPropertyOptional()
+    transaction?: boolean;
+    @ApiPropertyOptional()
+    comment?: string;
 }
 
 
-export const CrudController = <T, U>(entity: any, createDTO: any): Type<CrudInterface<T, U>> => {
-    class crudController<T> implements CrudInterface<T, U> {
+export interface ControllerInterface<T, U> extends Omit<CrudInterface<T, U>, "getQuery"> {
+    getQuery(request: FastifyRequest, skip?: number, take?: number, withDeleted?: boolean, loadEagerRelations?: boolean, transaction?: boolean, comment?: string, where?: any): Promise<T[]>
+}
+
+
+export const CrudController = <T, U>(entity: any, createDTO: any): Type<ControllerInterface<T, U>> => {
+    class crudController<T> implements ControllerInterface<T, U> {
         constructor(private readonly service: CrudInterface<T, U>) {
         }
 
@@ -27,18 +67,19 @@ export const CrudController = <T, U>(entity: any, createDTO: any): Type<CrudInte
             return this.service.getAll();
         }
 
-        // @Get()
-        // @ApiOperation({operationId: `getQuery`})
-        // getQuery(@Req() request: FastifyRequest,
-        //          @Query('skip', new DefaultValuePipe(0), ParseIntPipe) skip: number,
-        //          @Query('take', new DefaultValuePipe(100), ParseIntPipe) take: number,
-        //          @Query('withDeleted', new DefaultValuePipe(false), ParseBoolPipe) withDeleted: boolean,
-        //          @Query('loadEagerRelations', new DefaultValuePipe(true), ParseBoolPipe) loadEagerRelations: boolean,
-        //          @Query('transaction', new DefaultValuePipe(false), ParseBoolPipe) transaction: boolean,
-        //          @Query('comment') comment: string) {
-        //     const query = qs.parse(request.url.split('?')[1], QS_OPTIONS)
-        //     return this.service.getQuery({...query, skip, take, withDeleted, loadEagerRelations, transaction});
-        // }
+        @Get('query')
+        @ApiOperation({operationId: `getQuery`})
+        getQuery(@Req() request: FastifyRequest,
+                 @Query('skip', new DefaultValuePipe(0), ParseIntPipe) skip: number,
+                 @Query('take', new DefaultValuePipe(100), ParseIntPipe) take: number,
+                 @Query('withDeleted', new DefaultValuePipe(false), ParseBoolPipe) withDeleted: boolean,
+                 @Query('loadEagerRelations', new DefaultValuePipe(true), ParseBoolPipe) loadEagerRelations: boolean,
+                 @Query('transaction', new DefaultValuePipe(false), ParseBoolPipe) transaction: boolean,
+                 @Query('comment') comment: string) {
+
+            const query = qs.parse(request.url.split('?')[1], QS_OPTIONS)
+            return this.service.getQuery({...query, skip, take, withDeleted, loadEagerRelations, transaction});
+        }
 
         @Get(':id')
         @ApiOperation({operationId: `getOne`})

@@ -1,4 +1,4 @@
-import {Anchor, Box, Button, Checkbox, Flex, PasswordInput, Text, TextInput} from '@mantine/core';
+import {Anchor, Box, Button, Checkbox, Container, Flex, PasswordInput, Text, TextInput} from '@mantine/core';
 import {useForm} from '@mantine/form';
 import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
@@ -55,28 +55,33 @@ export function Login() {
 	const formSubmit = (values: any) => {
 	};
 	return (
-		<form onSubmit={form.onSubmit((values) => formSubmit(values))}>
-			<Box>
-				<Text mt={'xl'} fz={'30px'}>
-					Login
-				</Text>
-				<Text mt={'xl'}>Email</Text>
-				<TextInput size={'md'} {...form.getInputProps('email')} />
-				<Text mt={'xl'}>Password</Text>
-				<PasswordInput size={'md'} {...form.getInputProps('password')} />
-				<Flex justify={'space-between'} mt={'xl'}>
-					<Checkbox label="Remember me" />
-					<Anchor c={'black'} href="#" size="sm">
-						Forgot password?
-					</Anchor>
-				</Flex>
-				<Button my={'xl'} variant={'filled'} size={'md'} fullWidth type={'submit'} loading={status === 'pending'}>
-					Login
-				</Button>
-				<Button my={'xl'} variant={'outline'} size={'md'} fullWidth loading={status === 'pending'} onClick={() => navigate('/auth/sign-up')}>
-					Sign up
-				</Button>
-			</Box>
-		</form>
+		<Container>
+			<form onSubmit={form.onSubmit((values) => formSubmit(values))}>
+				<Box>
+					<Text mt={'xl'} fz={'30px'}>
+						Login
+					</Text>
+					<Text mt={'xl'}>Email</Text>
+					<TextInput size={'md'} {...form.getInputProps('email')} />
+					<Text mt={'xl'}>Password</Text>
+					<PasswordInput size={'md'} {...form.getInputProps('password')} />
+					<Flex justify={'space-between'} mt={'xl'}>
+						<Checkbox label="Remember me"/>
+						<Anchor c={'black'} href="#" size="sm">
+							Forgot password?
+						</Anchor>
+					</Flex>
+					<Button my={'xl'} variant={'filled'} size={'md'} fullWidth type={'submit'}
+							loading={status === 'pending'}>
+						Login
+					</Button>
+					<Button my={'xl'} variant={'outline'} size={'md'} fullWidth loading={status === 'pending'}
+							onClick={() => navigate('/auth/sign-up')}>
+						Sign up
+					</Button>
+				</Box>
+			</form>
+		</Container>
+
 	);
 }

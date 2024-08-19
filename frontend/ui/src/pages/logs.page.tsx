@@ -1,8 +1,10 @@
+import {Container} from "@mantine/core";
+
 export function Logs() {
     return(
-        <div>
+        <Container>
             <h1>Logs</h1>
             <p>Page with all the logs and app download prompt</p>
-        </div>
+        </Container>
     )
 }

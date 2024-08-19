@@ -1,6 +1,6 @@
 import {PickType} from "@nestjs/swagger";
 import {Column, Entity} from "typeorm";
-import {BaseDbEntity} from "@fl/base-tools/entity/baseDb.entity";
+import {BaseDbEntity} from "@footyTrackr/base-tools/entity/baseDb.entity";
 
 
 @Entity('genericToken')

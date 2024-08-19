@@ -1,8 +1,11 @@
+import {Container} from "@mantine/core";
+
 export function Matches() {
-    return(
-        <div>
+    return (
+        <Container>
             <h1>Matches</h1>
             <p>Page with all the Matches using rss</p>
-        </div>
+        </Container>
+
     )
 }
