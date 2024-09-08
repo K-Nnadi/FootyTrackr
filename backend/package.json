@@ -1,8 +1,8 @@
 {
   "name": "@footyTrackr/api",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "The backend for FootyTrackr",
+  "author": "Kenneth Nnadi",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -10,9 +10,9 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "ts-node-dev --files src/main.ts",
-    "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate src/shared/migrations/generatedCli  -d src/shared/ormconfig.ts",
-    "migration:run": "typeorm migration:run",
-    "migration:revert": "typeorm migration:revert"
+    "migrate": "ts-node ./node_modules/typeorm/cli.js migration:generate src/shared/migrations/generatedCli  -d src/shared/ormconfig.ts",
+    "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run -d src/shared/ormconfig.ts",
+    "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert -d src/shared/ormconfig.ts"
   },
   "dependencies": {
     "@footyTrackr/base-tools": "workspace:*",
