@@ -1,6 +1,6 @@
 import {PickType} from "@nestjs/swagger";
 import {Column, Entity, JoinTable, ManyToMany, OneToMany} from 'typeorm';
-import {BaseDbEntity} from "@footyTrackr/base-tools/entity/baseDb.entity";
+import {BaseDbEntity} from "../base/baseDbEntity";
 import {Stadium} from "../stadium/stadium";
 import {ClubCountryCompetitionSeason} from "../clubCountryCompetitionSeason/clubCountryCompetitionSeason";
 
