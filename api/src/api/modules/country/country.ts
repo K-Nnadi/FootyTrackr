@@ -12,7 +12,7 @@ export class Country extends BaseDbEntity {
     name!: string;
 
     @Column()
-    founded!: number;
+    founded?: number;
 
     @ManyToMany(() => Stadium, stadium => stadium.countries)
     @JoinTable()
@@ -21,15 +21,11 @@ export class Country extends BaseDbEntity {
     @OneToMany(() => ClubCountryCompetitionSeason, clubCountryCompSeason => clubCountryCompSeason.country)
     clubCountryCompetitionSeasons!: ClubCountryCompetitionSeason[];
 
-
-
     @Column()
     managerId!: number;
-
-    @
 
     @Column()
     logoUrl!: string;
 }
 
-export class CreateCountryDto extends PickType(Country, ["name", "founded", "stadiumId", "managerId", "website", "logoUrl", "city", "country"] as const) {}
+export class CreateCountryDto extends PickType(Country, ["name", "founded", "stadiums", "managerId", "logoUrl"] as const) {}

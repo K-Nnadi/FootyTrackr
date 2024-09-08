@@ -17,7 +17,7 @@ export class FixtureReferee extends BaseDbEntity {
     @Column()
     refereeId!: number;
 
-    @ManyToOne(() => Referee, referee => referee.fixtureReferees)
+    @ManyToOne(() => Referee, referee => referee.fixtures)
     referee!: Referee;
 
 

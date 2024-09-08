@@ -1,9 +1,9 @@
 import {PickType} from '@nestjs/swagger';
-import {Column, Entity, ManyToOne} from 'typeorm';
+import {Column, Entity, ManyToOne, OneToMany} from 'typeorm';
 import {BaseDbEntity} from '@footyTrackr/base-tools/entity/baseDb.entity';
 import {LineUp} from '../lineUp/lineUp';
 import {Player} from '../player/player';
-import {StartingOrSubstitute} from "../../enums/substitution.enum";
+import {Substitution} from "../substitution/substitution";
 
 @Entity('playerLineup')
 export class PlayerLineUp extends BaseDbEntity {
@@ -13,25 +13,24 @@ export class PlayerLineUp extends BaseDbEntity {
     @Column()
     lineupId!: number;
 
+    @Column()
+    playerId!: number;
+
     @ManyToOne(() => Player)
     player!: Player;
 
     @Column()
-    playerId!: number;
-
-    @Column({ type: 'enum', enum: StartingOrSubstitute, default: 'starting' })
-    role!: StartingOrSubstitute;
+    isStarting!: boolean;
 
     @Column({ nullable: true })
     positionId?: number;
 
-    @Column({ nullable: true })
-    substituteId?: number;
-
+    @OneToMany(() => Substitution, substitution => substitution.playerLineup)
+    substitutions!: Substitution[];
 
     @Column({ default: false })
     isCaptain!: boolean;
 }
 
 
-export class CreatePlayerLineUpDto extends PickType(PlayerLineUp, ["fixtureId", "clubId", "managerId", "playerIds", "formation", "isCaptain"] as const) {}
+export class CreatePlayerLineUpDto extends PickType(PlayerLineUp, [ "lineupId" , "playerId" , "isCaptain" , "positionId", "isStarting"] as const) {}

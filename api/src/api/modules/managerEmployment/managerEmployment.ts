@@ -18,13 +18,13 @@ export class ManagerEmployment extends BaseDbEntity {
     @Column()
     clubId?: number;
 
-    @ManyToOne(() => Club, club => club.employments, { nullable: true })
+    @ManyToOne(() => Club, { nullable: true })
     club?: Club;
 
     @Column()
     countryId?: number;
 
-    @ManyToOne(() => Country, country => country.employments, { nullable: true })
+    @ManyToOne(() => Country, { nullable: true })
     country?: Country;
 
     @Column()

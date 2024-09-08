@@ -28,4 +28,4 @@ export class PlayerLineUpController extends CrudController<PlayerLineUp, CreateP
 })
 
 
-export class PlayerPlayerLineUpModule {}
+export class PlayerLineUpModule {}

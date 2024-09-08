@@ -1,10 +1,11 @@
 import {PickType} from "@nestjs/swagger";
-import {Column, Entity, ManyToOne} from 'typeorm';
+import {Column, Entity, ManyToOne, OneToMany} from 'typeorm';
 import {BaseDbEntity} from "@footyTrackr/base-tools/entity/baseDb.entity";
 import {Club} from "../club/club";
 import {Competition} from "../competition/competition";
 import {Season} from "../season/season";
 import {Country} from "../country/country";
+import {Fixture} from "../fixture/fixture";
 
 
 @Entity('clubCountryCompetitionSeason')
@@ -32,6 +33,9 @@ export class ClubCountryCompetitionSeason extends BaseDbEntity {
 
     @ManyToOne(() => Season, season => season.clubCountryCompetitionSeasons)
     season!: Season;
+
+    @OneToMany(() => Fixture, fixture => fixture.clubCountryCompetitionSeasons)
+    fixtures?: Fixture[];
 
     @Column({nullable: true})
     points?: number; // Optional: Store points for league competitions
