@@ -10,14 +10,9 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "ts-node-dev --files src/main.ts",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate src/shared/migrations/generatedCli  -d src/shared/ormconfig.ts",
+    "migration:run": "typeorm migration:run",
+    "migration:revert": "typeorm migration:revert"
   },
   "dependencies": {
     "@footyTrackr/base-tools": "workspace:*",

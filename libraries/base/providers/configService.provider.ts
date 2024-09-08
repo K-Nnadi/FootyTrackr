@@ -7,8 +7,7 @@ export class ConfigServiceProvider implements TypeOrmOptionsFactory {
 	constructor(private configService: ConfigService) {}
 
 	createTypeOrmOptions(): TypeOrmModuleOptions {
-		console.log(this.configService)
-		return {
+		const typeORMConfig = {
 			type: this.configService.get('DATABASE_TYPE'),
 			host: this.configService.get('DATABASE_HOST'),
 			port: this.configService.get('DATABASE_PORT'),
@@ -20,7 +19,10 @@ export class ConfigServiceProvider implements TypeOrmOptionsFactory {
 			logging: true,
 			synchronize: this.configService.get('DATABASE_SYNCHRONIZE') === 'true',
 			migrationsRun: true,
-			migrations: [`src/shared/migrations/*{.ts,.js}`]
-		};
+			migrations: [`src/api/shared/migrations/*{.ts,.js}`]
+		}
+
+		console.log(typeORMConfig)
+		return  typeORMConfig;
 	}
 }
