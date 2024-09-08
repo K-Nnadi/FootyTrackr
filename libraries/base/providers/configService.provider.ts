@@ -19,7 +19,10 @@ export class ConfigServiceProvider implements TypeOrmOptionsFactory {
 			logging: true,
 			synchronize: this.configService.get('DATABASE_SYNCHRONIZE') === 'true',
 			migrationsRun: true,
-			migrations: [`src/api/shared/migrations/*{.ts,.js}`]
+			migrations: [`src/shared/migrations/*{.ts,.js}`],
+			cli: {
+				migrationsDir: 'src/shared/migrations'
+			}
 		}
 
 		console.log(typeORMConfig)
