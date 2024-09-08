@@ -25,14 +25,14 @@
   "include": [
     "libraries/**/*",
     "frontend/ui/**/*",
-    "api/**/*"
+    "backend/**/*"
   ],
   "references": [
     {
       "path": "libraries/base"
     },
     {
-      "path": "api"
+      "path": "backend"
     },
     {
       "path": "frontend/ui"

@@ -1,0 +1,23 @@
+{
+  "extends": "../tsconfig.json",
+  "include": [
+    "package.json",
+    "tsconfig.json",
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "**/*spec.ts"
+  ],
+  "references": [
+    {
+      "path": "../libraries/base"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "./build",
+    "baseUrl": "./"
+  }
+}
