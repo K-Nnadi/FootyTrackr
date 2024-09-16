@@ -1,9 +1,9 @@
 import { PickType } from '@nestjs/swagger';
 import {Column, Entity, ManyToOne} from 'typeorm';
-import { BaseDbEntity } from '@footyTrackr/base-tools/entity/baseDb.entity';
+import { BaseDbEntity } from '@iWatchFootball/base-tools/entity/baseDb.entity';
 import {Player} from "../player/player";
 import {PlayerLineUp} from "../playerLineUp/playerLineUp";
-import {Club} from "../club/club";
+import {Team} from "../team/team";
 
 @Entity('substitution')
 export class Substitution extends BaseDbEntity {
@@ -14,10 +14,10 @@ export class Substitution extends BaseDbEntity {
     fixtureId!: number;
 
     @Column()
-    clubId?: number;
+    teamId?: number;
 
-    @ManyToOne(() => Club, { nullable: true })
-    club?: Club;
+    @ManyToOne(() => Team, { nullable: true })
+    team?: Team;
 
     @Column()
     countryId?: number;
@@ -38,4 +38,4 @@ export class Substitution extends BaseDbEntity {
     minute!: number;
 }
 
-export class CreateSubstitutionDto extends PickType(Substitution, ["fixtureId", "clubId", "playerInId", "playerOutId", "minute"] as const) {}
+export class CreateSubstitutionDto extends PickType(Substitution, ["fixtureId", "teamId", "playerInId", "playerOutId", "minute"] as const) {}

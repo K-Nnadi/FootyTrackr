@@ -1,7 +1,7 @@
 import { PickType } from '@nestjs/swagger';
 import {Column, Entity, OneToMany} from 'typeorm';
-import { BaseDbEntity } from '@footyTrackr/base-tools/entity/baseDb.entity';
-import {ClubCountryCompetitionSeason} from "../clubCountryCompetitionSeason/clubCountryCompetitionSeason";
+import { BaseDbEntity } from '@iWatchFootball/base-tools/entity/baseDb.entity';
+import {TeamCompetitionSeason} from "../teamCompetitionSeason/teamCompetitionSeason";
 
 @Entity('season')
 export class Season extends BaseDbEntity {
@@ -11,8 +11,8 @@ export class Season extends BaseDbEntity {
     @Column()
     yearEnd!: number;   // e.g., 2024
 
-    @OneToMany(() => ClubCountryCompetitionSeason, clubCountryCompSeason => clubCountryCompSeason.season)
-    clubCountryCompetitionSeasons!: ClubCountryCompetitionSeason[];
+    @OneToMany(() => TeamCompetitionSeason, teamCompSeason => teamCompSeason.season)
+    teamCompetitionSeasons!: TeamCompetitionSeason[];
 }
 
 export class CreateSeasonDto extends PickType(Season, ['yearStart', 'yearEnd'] as const) {}

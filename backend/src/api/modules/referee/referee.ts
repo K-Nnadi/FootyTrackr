@@ -1,6 +1,6 @@
 import { PickType } from '@nestjs/swagger';
 import { Column, Entity, OneToMany } from 'typeorm';
-import { BaseDbEntity } from '@footyTrackr/base-tools/entity/baseDb.entity';
+import { BaseDbEntity } from '@iWatchFootball/base-tools/entity/baseDb.entity';
 import {FixtureReferee} from "../fixtureReferee/fixtureReferee";
 
 @Entity('referee')

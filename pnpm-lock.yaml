@@ -89,7 +89,7 @@ importers:
 
   backend:
     dependencies:
-      '@footyTrackr/base-tools':
+      '@iWatchFootball/base-tools':
         specifier: workspace:*
         version: link:../libraries/base
       '@nestjs/common':

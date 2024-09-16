@@ -30,7 +30,7 @@ export function Footer() {
                             {/*            </Title>*/}
                             {/*            <Text c={'neutral.2'} fz={'xs'} maw={440}>*/}
                             {/*                {' '}*/}
-                            {/*                Sign up to The FootyTrackr newsletter for the newest releases, curated collections and product recommendations tailored to you.*/}
+                            {/*                Sign up to The IWatchFootball newsletter for the newest releases, curated collections and product recommendations tailored to you.*/}
                             {/*            </Text>*/}
                             {/*        </Stack>*/}
                             {/*    </Grid.Col>*/}

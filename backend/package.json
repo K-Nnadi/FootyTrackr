@@ -1,7 +1,7 @@
 {
-  "name": "@footyTrackr/api",
+  "name": "@iWatchFootball/api",
   "version": "0.0.1",
-  "description": "The backend for FootyTrackr",
+  "description": "The backend for IWatchFootball",
   "author": "Kenneth Nnadi",
   "private": true,
   "license": "UNLICENSED",
@@ -15,7 +15,7 @@
     "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert -d src/shared/ormconfig.ts"
   },
   "dependencies": {
-    "@footyTrackr/base-tools": "workspace:*",
+    "@iWatchFootball/base-tools": "workspace:*",
     "@nestjs/common": "10.3.2",
     "@nestjs/core": "^10.0.0",
     "@nestjs/mapped-types": "*",

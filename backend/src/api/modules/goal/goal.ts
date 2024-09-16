@@ -1,6 +1,6 @@
 import { PickType } from '@nestjs/swagger';
 import {Column, Entity, ManyToOne} from 'typeorm';
-import { BaseDbEntity } from '@footyTrackr/base-tools/entity/baseDb.entity';
+import { BaseDbEntity } from '@iWatchFootball/base-tools/entity/baseDb.entity';
 import {Fixture} from "../fixture/fixture";
 import {Player} from "../player/player";
 
@@ -28,7 +28,7 @@ export class Goal extends BaseDbEntity {
     fixture!: Fixture;
 
     @Column()
-    clubId!: number;
+    teamId!: number;
 
     @Column()
     ownGoal?: boolean;
@@ -37,4 +37,4 @@ export class Goal extends BaseDbEntity {
     penalty?: boolean;
 }
 
-export class CreateGoalDto extends PickType(Goal, ["fixtureId", "scorerId", "assistantId", "clubId", "minute", "ownGoal", "penalty"] as const) {}
+export class CreateGoalDto extends PickType(Goal, ["fixtureId", "scorerId", "assistantId", "teamId", "minute", "ownGoal", "penalty"] as const) {}

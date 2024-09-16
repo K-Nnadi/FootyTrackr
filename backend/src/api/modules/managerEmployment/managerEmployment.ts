@@ -1,7 +1,7 @@
 import {PickType} from "@nestjs/swagger";
 import {Column, Entity, JoinColumn, ManyToOne, OneToMany} from "typeorm";
-import {BaseDbEntity} from "@footyTrackr/base-tools/entity/baseDb.entity";
-import {Club} from "../club/club";
+import {BaseDbEntity} from "@iWatchFootball/base-tools/entity/baseDb.entity";
+import {Team} from "../team/team";
 import {Manager} from "../manager/manager";
 import {Country} from "../country/country";
 
@@ -16,10 +16,10 @@ export class ManagerEmployment extends BaseDbEntity {
     manager!: Manager;
 
     @Column()
-    clubId?: number;
+    teamId?: number;
 
-    @ManyToOne(() => Club, { nullable: true })
-    club?: Club;
+    @ManyToOne(() => Team, { nullable: true })
+    team?: Team;
 
     @Column()
     countryId?: number;

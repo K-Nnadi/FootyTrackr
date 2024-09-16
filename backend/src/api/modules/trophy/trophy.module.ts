@@ -1,9 +1,9 @@
 import {Injectable, Module} from '@nestjs/common';
 import {InjectRepository, TypeOrmModule} from "@nestjs/typeorm";
 import {CreateTrophyDto, Trophy} from "./trophy";
-import {CrudController} from "@footyTrackr/base-tools/crud/crud.controller";
-import {AuthedController} from "@footyTrackr/base-tools/decorators/controller.decorator";
-import {CrudRepoAdapter} from "@footyTrackr/base-tools/crud/crud.repo.adapter";
+import {CrudController} from "@iWatchFootball/base-tools/crud/crud.controller";
+import {AuthedController} from "@iWatchFootball/base-tools/decorators/controller.decorator";
+import {CrudRepoAdapter} from "@iWatchFootball/base-tools/crud/crud.repo.adapter";
 import {Repository} from "typeorm";
 
 

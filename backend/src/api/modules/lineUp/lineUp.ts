@@ -1,8 +1,8 @@
 import { PickType } from '@nestjs/swagger';
 import {Column, Entity, ManyToOne, OneToMany} from 'typeorm';
-import { BaseDbEntity } from '@footyTrackr/base-tools/entity/baseDb.entity';
+import { BaseDbEntity } from '@iWatchFootball/base-tools/entity/baseDb.entity';
 import {Fixture} from "../fixture/fixture";
-import {Club} from "../club/club";
+import {Team} from "../team/team";
 import {Manager} from "../manager/manager";
 import {Country} from "../country/country";
 import {HomeOrAway} from "../../enums/fixture.enum";
@@ -18,10 +18,10 @@ export class LineUp extends BaseDbEntity {
     fixture!: Fixture;
 
     @Column()
-    clubId?: number;
+    teamId?: number;
 
-    @ManyToOne(() => Club)
-    club?: Club;
+    @ManyToOne(() => Team)
+    team?: Team;
 
     @Column()
     countryId?: number;
@@ -45,4 +45,4 @@ export class LineUp extends BaseDbEntity {
     formation?: string; // e.g., 4-4-2, 3-5-2
 }
 
-export class CreateLineUpDto extends PickType(LineUp, ["fixtureId", "clubId", "managerId", "formation", "teamType"] as const) {}
+export class CreateLineUpDto extends PickType(LineUp, ["fixtureId", "teamId", "managerId", "formation", "teamType"] as const) {}

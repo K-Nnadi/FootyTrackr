@@ -1,6 +1,6 @@
 import { PickType } from '@nestjs/swagger';
 import {Column, Entity, ManyToOne, OneToOne} from 'typeorm';
-import { BaseDbEntity } from '@footyTrackr/base-tools/entity/baseDb.entity';
+import { BaseDbEntity } from '@iWatchFootball/base-tools/entity/baseDb.entity';
 import {Competition} from "../competition/competition";
 
 @Entity('trophy')

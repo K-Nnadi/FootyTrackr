@@ -1,14 +1,13 @@
 import {PickType} from "@nestjs/swagger";
 import {Column, Entity, ManyToOne, OneToMany} from 'typeorm';
-import {BaseDbEntity} from "@footyTrackr/base-tools/entity/baseDb.entity";
+import {BaseDbEntity} from "@iWatchFootball/base-tools/entity/baseDb.entity";
 import {Stadium} from "../stadium/stadium";
-import {Club} from "../club/club";
+import {Team} from "../team/team";
 import {FixtureStatus} from "../../enums/fixture.enum";
 import {Goal} from "../goal/goal";
 import {FixtureReferee} from "../fixtureReferee/fixtureReferee";
 import {LineUp} from "../lineUp/lineUp";
-import {Country} from "../country/country";
-import {ClubCountryCompetitionSeason} from "../clubCountryCompetitionSeason/clubCountryCompetitionSeason";
+import {TeamCompetitionSeason} from "../teamCompetitionSeason/teamCompetitionSeason";
 
 @Entity('fixture')
 export class Fixture extends BaseDbEntity {
@@ -16,28 +15,16 @@ export class Fixture extends BaseDbEntity {
     date!: Date;
 
     @Column()
-    homeClubId?: number;
+    homeTeamId?: number;
 
-    @ManyToOne(() => Club, { eager: true, nullable: true })
-    homeClub?: Club;
+    @ManyToOne(() => Team, { eager: true, nullable: true })
+    homeTeam?: Team;
 
     @Column()
-    awayClubId?: number;
+    awayTeamId?: number;
 
-    @ManyToOne(() => Club, { eager: true, nullable: true })
-    awayClub?: Club;
-
-    @Column({ nullable: true })
-    homeCountryId?: number;
-
-    @ManyToOne(() => Country, { nullable: true })
-    homeCountry?: Country;
-
-    @Column({ nullable: true })
-    awayCountryId?: number;
-
-    @ManyToOne(() => Country,{ nullable: true })
-    awayCountry?: Country;
+    @ManyToOne(() => Team, { eager: true, nullable: true })
+    awayTeam?: Team;
 
     @OneToMany(() => LineUp, lineUp => lineUp.fixture)
     lineUps!: LineUp[];
@@ -48,8 +35,8 @@ export class Fixture extends BaseDbEntity {
     @Column()
     seasonId!: number;
 
-    @ManyToOne(() => ClubCountryCompetitionSeason, clubCountryCompetitionSeason => clubCountryCompetitionSeason.fixtures)
-    clubCountryCompetitionSeasons!: ClubCountryCompetitionSeason;
+    @ManyToOne(() => TeamCompetitionSeason, teamCompetitionSeason => teamCompetitionSeason.fixtures)
+    teamCompetitionSeasons!: TeamCompetitionSeason;
 
     @Column()
     stadiumId!: number;
@@ -72,4 +59,4 @@ export class Fixture extends BaseDbEntity {
 }
 
 
-export class CreateFixtureDto extends PickType(Fixture, ["homeClubId", "awayClubId", "competitionId", "stadiumId", "date", "attendance", "status", "seasonId", "homeCountryId", "awayCountryId"] as const) {}
+export class CreateFixtureDto extends PickType(Fixture, ["homeTeamId", "awayTeamId", "competitionId", "stadiumId", "date", "attendance", "status", "seasonId"] as const) {}

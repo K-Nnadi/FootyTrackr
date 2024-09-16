@@ -1,5 +1,5 @@
 {
-	"name": "@footyTrackr",
+	"name": "@iWatchFootball",
 	"scripts": {
 		"dev:frontend": "pnpm --filter @my-monorepo/frontend dev",
 		"dev:api": "pnpm  @monorepo/api dev",

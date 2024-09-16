@@ -1,7 +1,7 @@
 import {PickType} from "@nestjs/swagger";
 import {Column, Entity, OneToMany} from "typeorm";
-import {BaseDbEntity} from "@footyTrackr/base-tools/entity/baseDb.entity";
-import {Club} from "../club/club";
+import {BaseDbEntity} from "@iWatchFootball/base-tools/entity/baseDb.entity";
+import {Team} from "../team/team";
 import {ManagerEmployment} from "../managerEmployment/managerEmployment";
 
 
@@ -18,11 +18,11 @@ export class Manager extends BaseDbEntity{
     nationality!: string
 
     @Column()
-    currentClub?: number
+    currentTeam?: number
 
     @OneToMany(() => ManagerEmployment, employment => employment.manager)
     employments!: ManagerEmployment[];
 }
 
 
-export class CreateManagerDto extends PickType(Manager, ["name", "nickname","nationality", "currentClub"] as const) {}
+export class CreateManagerDto extends PickType(Manager, ["name", "nickname","nationality", "currentTeam"] as const) {}

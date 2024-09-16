@@ -1,5 +1,5 @@
 import {Module} from '@nestjs/common';
-import {CONFIG, TYPEORM_CONFIG} from "@footyTrackr/base-tools/config/config";
+import {CONFIG, TYPEORM_CONFIG} from "@iWatchFootball/base-tools/config/config";
 import {PlayerModule} from "./api/modules/player/player.module";
 import {ManagerEmploymentModule} from "./api/modules/managerEmployment/managerEmployment.module";
 import {AddressModule} from "./api/modules/address/address.module";
@@ -19,10 +19,9 @@ import {FixtureRefereeModule} from "./api/modules/fixtureReferee/fixtureReferee.
 import {TrophyModule} from "./api/modules/trophy/trophy.module";
 import {RefereeModule} from "./api/modules/referee/referee.module";
 import {InjuryModule} from "./api/modules/injury/injury.module";
-import {ClubModule} from "./api/modules/club/club.module";
-import {ClubCountryCompetitionSeasonModule} from "./api/modules/clubCountryCompetitionSeason/clubCountryCompetitionSeason.module";
+import {TeamModule} from "./api/modules/team/team.module";
+import {TeamCompetitionSeasonModule} from "./api/modules/teamCompetitionSeason/teamCompetitionSeason.module";
 import {SeasonModule} from "./api/modules/season/season.module";
-import {CountryModule} from "./api/modules/country/country.module";
 import {ManagerModule} from "./api/modules/manager/manager.module";
 import {PlayerLineUpModule} from "./api/modules/playerLineUp/playerLineUp.module";
 
@@ -30,10 +29,7 @@ import {PlayerLineUpModule} from "./api/modules/playerLineUp/playerLineUp.module
 const Modules = [
     AddressModule,
     CardModule,
-    ClubModule,
-    ClubCountryCompetitionSeasonModule,
     CompetitionModule,
-    CountryModule,
     FixtureModule,
     FixtureRefereeModule,
     GenericTokenModule,
@@ -50,6 +46,8 @@ const Modules = [
     SeasonModule,
     StadiumModule,
     SubstitutionModule,
+    TeamModule,
+    TeamCompetitionSeasonModule,
     TransferModule,
     TrophyModule,
     UserModule

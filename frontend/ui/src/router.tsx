@@ -12,7 +12,7 @@ export type ElementMap = {
     [x: any]: Element;
 }
 
-const FootyTrackrElements: ElementMap = {
+const IWatchFootballElements: ElementMap = {
     home: <Home/>,
     logs: <Logs/>,
     matches: <Matches/>,
@@ -21,7 +21,7 @@ const FootyTrackrElements: ElementMap = {
     signIn: <Login />
 }
 
-const childrenRoutes = Object.entries(FootyTrackrElements).map(([path, element]) => ({
+const childrenRoutes = Object.entries(IWatchFootballElements).map(([path, element]) => ({
     path: `/${path}`,
     element: element as JSX.Element
 }));

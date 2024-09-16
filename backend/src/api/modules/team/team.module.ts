@@ -1,6 +1,6 @@
 import {Injectable, Module} from '@nestjs/common';
 import {InjectRepository, TypeOrmModule} from "@nestjs/typeorm";
-import {CreateUserDto, User} from "./user";
+import {CreateTeamDto, Team} from "./team";
 import {CrudController} from "@iWatchFootball/base-tools/crud/crud.controller";
 import {AuthedController} from "@iWatchFootball/base-tools/decorators/controller.decorator";
 import {CrudRepoAdapter} from "@iWatchFootball/base-tools/crud/crud.repo.adapter";
@@ -8,24 +8,24 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class UserService extends CrudRepoAdapter<User, CreateUserDto> {
-  constructor(@InjectRepository(User) private entityRepo: Repository<User>) {
+class TeamService extends CrudRepoAdapter<Team, CreateTeamDto> {
+  constructor(@InjectRepository(Team) private entityRepo: Repository<Team>) {
     super(entityRepo);
   }
 }
 
-@AuthedController('user')
-export class UserController extends CrudController<User, CreateUserDto>(User, CreateUserDto){
-  constructor(private service: UserService) {
+@AuthedController('team')
+export class TeamController extends CrudController<Team, CreateTeamDto>(Team, CreateTeamDto){
+  constructor(private service: TeamService) {
     super(service)
   }
 }
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User])],
-  controllers: [UserController],
-  providers: [UserService]
+  imports: [TypeOrmModule.forFeature([Team])],
+  controllers: [TeamController],
+  providers: [TeamService]
 })
 
 
-export class UserModule {}
+export class TeamModule {}

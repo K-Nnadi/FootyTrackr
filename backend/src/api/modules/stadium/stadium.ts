@@ -1,8 +1,8 @@
 import {PickType} from "@nestjs/swagger";
 import {Column, Entity, ManyToMany, OneToMany, OneToOne} from "typeorm";
-import {BaseDbEntity} from "@footyTrackr/base-tools/entity/baseDb.entity";
+import {BaseDbEntity} from "@iWatchFootball/base-tools/entity/baseDb.entity";
 import {Address} from "../address/address";
-import {Club} from "../club/club";
+import {Team} from "../team/team";
 import {Fixture} from "../fixture/fixture";
 import {Country} from "../country/country";
 
@@ -18,13 +18,13 @@ export class Stadium extends BaseDbEntity{
     opened?: string
 
     @Column()
-    clubIds!: number[]
+    teamIds!: number[]
 
-    @OneToMany(() => Club, club => club.stadium)
-    clubs!: Club[]
+    @OneToMany(() => Team, team => team.stadium)
+    teams!: Team[]
 
     @ManyToMany(() => Country, country => country.stadiums)
-    countries!: Club[]
+    countries!: Team[]
 
     @Column()
     capacity!: number
@@ -39,4 +39,4 @@ export class Stadium extends BaseDbEntity{
     fixtures?: Fixture[]
 }
 
-export class CreateStadiumDto extends PickType(Stadium, ["name", "opened", "clubIds", "capacity", "addressId"] as const){}
+export class CreateStadiumDto extends PickType(Stadium, ["name", "opened", "teamIds", "capacity", "addressId"] as const){}

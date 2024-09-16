@@ -6,7 +6,7 @@ import {NestApplicationOptions} from "@nestjs/common";
 
 export const SWAGGER_DOCUMENT =  new DocumentBuilder()
     .setTitle('Football Logger API')
-    .setDescription('The API Docs for Football Logger')
+    .setDescription('The API Docs for I Watch Football')
     .setVersion('1.0')
     .build();
 

@@ -1,8 +1,8 @@
 import {PickType} from "@nestjs/swagger";
 import {Column, Entity, OneToMany} from 'typeorm';
-import {BaseDbEntity} from "@footyTrackr/base-tools/entity/baseDb.entity";
+import {BaseDbEntity} from "@iWatchFootball/base-tools/entity/baseDb.entity";
 import {CompetitionType} from "../../enums/competition.enum";
-import {ClubCountryCompetitionSeason} from "../clubCountryCompetitionSeason/clubCountryCompetitionSeason";
+import {TeamCompetitionSeason} from "../teamCompetitionSeason/teamCompetitionSeason";
 import {Trophy} from "../trophy/trophy";
 
 
@@ -18,8 +18,8 @@ export class Competition extends BaseDbEntity {
     @Column()
     country!: string;
 
-    @OneToMany(() => ClubCountryCompetitionSeason, clubCountryCompSeason => clubCountryCompSeason.competition)
-    clubCountryCompetitionSeasons!: ClubCountryCompetitionSeason[];
+    @OneToMany(() => TeamCompetitionSeason, teamCompSeason => teamCompSeason.competition)
+    teamCompetitionSeasons!: TeamCompetitionSeason[];
 
     @OneToMany(() => Trophy, trophy => trophy.competition)
     trophies!: Trophy[];

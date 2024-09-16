@@ -1,8 +1,8 @@
 import {PickType} from "@nestjs/swagger";
 import {Column, Entity, ManyToOne, OneToMany} from 'typeorm';
-import {BaseDbEntity} from "@footyTrackr/base-tools/entity/baseDb.entity";
+import {BaseDbEntity} from "@iWatchFootball/base-tools/entity/baseDb.entity";
 import {Player} from "../player/player";
-import {Club} from "../club/club";
+import {Team} from "../team/team";
 
 
 @Entity('transfer')
@@ -15,16 +15,16 @@ export class Transfer extends BaseDbEntity {
     player!: Player
 
     @Column()
-    sourceClubId!: number
+    sourceTeamId!: number
 
-    @ManyToOne(() => Club)
-    sourceClub!: Club;  // Country player is transferring from
+    @ManyToOne(() => Team)
+    sourceTeam!: Team;  // Country player is transferring from
 
     @Column()
-    destinationClubId!: number
+    destinationTeamId!: number
 
-    @ManyToOne(() => Club)
-    destinationClub!: Club;
+    @ManyToOne(() => Team)
+    destinationTeam!: Team;
 
     @Column()
     transferFee!: number
@@ -36,5 +36,5 @@ export class Transfer extends BaseDbEntity {
     isLoan?: boolean
 }
 
-export class CreateTransferDto extends PickType(Transfer, ["playerId", "sourceClubId", "destinationClubId", "transferFee", "date", "isLoan"] as const) {
+export class CreateTransferDto extends PickType(Transfer, ["playerId", "sourceTeamId", "destinationTeamId", "transferFee", "date", "isLoan"] as const) {
 }
