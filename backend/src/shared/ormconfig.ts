@@ -2,6 +2,8 @@ import { join } from 'path';
 import { DataSource } from 'typeorm';
 require('dotenv').config();
 
+console.log('PATH:', join(__dirname, '../../', 'src/api/modules/**/*{.ts,.js}'));
+
 export default new DataSource({
 	// @ts-ignore
 	type: process.env.DATABASE_TYPE,
@@ -11,7 +13,7 @@ export default new DataSource({
 	username: process.env.DATABASE_USERNAME,
 	password: process.env.DATABASE_PASSWORD,
 	database: process.env.DATABASE_NAME,
-	entities: [ join(__dirname, '../../', 'src/modules/**/*{.ts,.js}')],
+	entities: [ join(__dirname, '../../', 'src/api/modules/**/*{.ts,.js}')],
 	autoLoadEntities: false,
 	migrationsRun: false,
 	synchronize: false,

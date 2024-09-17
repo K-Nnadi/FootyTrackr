@@ -23,7 +23,6 @@ export function Navbar() {
                 style={{margin: "5px"}}
             />
 
-
             <NavLink
                 label={"Competitions"}
                 onClick={() => navigate('/competitions')}

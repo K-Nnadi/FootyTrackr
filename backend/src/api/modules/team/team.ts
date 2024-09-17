@@ -15,8 +15,8 @@ export class Team extends BaseDbEntity {
     @Column()
     founded!: number;
 
-    @Column()
-    stadiumIds!: number[];
+    @Column("int", { array: true, nullable: true })
+    stadiumIds?: number[];
 
     @ManyToMany(() => Stadium, stadium => stadium.teams)
     stadiums?: Stadium[]
