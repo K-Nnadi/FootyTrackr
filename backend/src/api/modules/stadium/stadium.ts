@@ -4,7 +4,6 @@ import {BaseDbEntity} from "@iWatchFootball/base-tools/entity/baseDb.entity";
 import {Address} from "../address/address";
 import {Team} from "../team/team";
 import {Fixture} from "../fixture/fixture";
-import {Country} from "../country/country";
 
 
 @Entity('stadium')
@@ -20,11 +19,8 @@ export class Stadium extends BaseDbEntity{
     @Column()
     teamIds!: number[]
 
-    @OneToMany(() => Team, team => team.stadium)
+    @ManyToMany(() => Team, team => team.stadiums)
     teams!: Team[]
-
-    @ManyToMany(() => Country, country => country.stadiums)
-    countries!: Team[]
 
     @Column()
     capacity!: number

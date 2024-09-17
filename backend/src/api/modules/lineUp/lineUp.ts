@@ -1,10 +1,9 @@
-import { PickType } from '@nestjs/swagger';
+import {PickType} from '@nestjs/swagger';
 import {Column, Entity, ManyToOne, OneToMany} from 'typeorm';
-import { BaseDbEntity } from '@iWatchFootball/base-tools/entity/baseDb.entity';
+import {BaseDbEntity} from '@iWatchFootball/base-tools/entity/baseDb.entity';
 import {Fixture} from "../fixture/fixture";
 import {Team} from "../team/team";
 import {Manager} from "../manager/manager";
-import {Country} from "../country/country";
 import {HomeOrAway} from "../../enums/fixture.enum";
 import {PlayerLineUp} from "../playerLineUp/playerLineUp";
 
@@ -18,16 +17,10 @@ export class LineUp extends BaseDbEntity {
     fixture!: Fixture;
 
     @Column()
-    teamId?: number;
+    teamId!: number;
 
     @ManyToOne(() => Team)
-    team?: Team;
-
-    @Column()
-    countryId?: number;
-
-    @ManyToOne(() => Country)
-    country?: Country;
+    team!: Team;
 
     @Column()
     managerId!: number;

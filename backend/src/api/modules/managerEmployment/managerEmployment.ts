@@ -3,7 +3,6 @@ import {Column, Entity, JoinColumn, ManyToOne, OneToMany} from "typeorm";
 import {BaseDbEntity} from "@iWatchFootball/base-tools/entity/baseDb.entity";
 import {Team} from "../team/team";
 import {Manager} from "../manager/manager";
-import {Country} from "../country/country";
 
 
 @Entity('managerEmployment')
@@ -16,16 +15,10 @@ export class ManagerEmployment extends BaseDbEntity {
     manager!: Manager;
 
     @Column()
-    teamId?: number;
+    teamId!: number;
 
     @ManyToOne(() => Team, { nullable: true })
-    team?: Team;
-
-    @Column()
-    countryId?: number;
-
-    @ManyToOne(() => Country, { nullable: true })
-    country?: Country;
+    team!: Team;
 
     @Column()
     startDate!: Date;
