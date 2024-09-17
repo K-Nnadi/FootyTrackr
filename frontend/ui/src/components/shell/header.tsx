@@ -15,6 +15,7 @@ export function Header({ showHeader }: HeaderProps) {
 
     const pages = [
         { page: 'home', label: 'Home' },
+        { page: 'competitions', label: 'Competitions' },
         { page: 'matches', label: 'Matches' },
         { page: 'logs', label: 'Logs' }
     ];

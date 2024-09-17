@@ -23,6 +23,13 @@ export function Navbar() {
                 style={{margin: "5px"}}
             />
 
+
+            <NavLink
+                label={"Competitions"}
+                onClick={() => navigate('/competitions')}
+                style={{margin: "5px"}}
+            />
+
             <NavLink
                 label={"Settings"}
                 onClick={() => navigate('/settings')}
