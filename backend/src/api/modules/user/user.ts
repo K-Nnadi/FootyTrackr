@@ -1,13 +1,9 @@
 import {PickType} from "@nestjs/swagger";
-import {Column, Entity} from "typeorm";
+import {Entity} from "typeorm";
 import {BaseDbEntity} from "@iWatchFootball/base-tools/entity/baseDb.entity";
 import {EntityColumn} from "@iWatchFootball/base-tools/decorators/entityColumn.decorator";
+import {UserType} from "../../enums/user.enum";
 
-
-enum UserType {
-    'ADMIN' = "ADMIN",
-    "USER" = "USER"
-}
 
 @Entity('user')
 

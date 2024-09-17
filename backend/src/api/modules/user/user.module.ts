@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class UserService extends CrudRepoAdapter<User, CreateUserDto> {
+export class UserService extends CrudRepoAdapter<User, CreateUserDto> {
   constructor(@InjectRepository(User) private entityRepo: Repository<User>) {
     super(entityRepo);
   }
