@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class CompetitionService extends CrudRepoAdapter<Competition, CreateCompetitionDto> {
+export class CompetitionService extends CrudRepoAdapter<Competition, CreateCompetitionDto> {
   constructor(@InjectRepository(Competition) private entityRepo: Repository<Competition>) {
     super(entityRepo);
   }
@@ -24,7 +24,8 @@ export class CompetitionController extends CrudController<Competition, CreateCom
 @Module({
   imports: [TypeOrmModule.forFeature([Competition])],
   controllers: [CompetitionController],
-  providers: [CompetitionService]
+  providers: [CompetitionService],
+  exports: [CompetitionService]
 })
 
 

@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class InjuryService extends CrudRepoAdapter<Injury, CreateInjuryDto> {
+export class InjuryService extends CrudRepoAdapter<Injury, CreateInjuryDto> {
   constructor(@InjectRepository(Injury) private entityRepo: Repository<Injury>) {
     super(entityRepo);
   }
@@ -24,7 +24,8 @@ export class InjuryController extends CrudController<Injury, CreateInjuryDto>(In
 @Module({
   imports: [TypeOrmModule.forFeature([Injury])],
   controllers: [InjuryController],
-  providers: [InjuryService]
+  providers: [InjuryService],
+  exports: [InjuryService]
 })
 
 

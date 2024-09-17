@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class CardService extends CrudRepoAdapter<Card, CreateCardDto> {
+export class CardService extends CrudRepoAdapter<Card, CreateCardDto> {
     constructor(@InjectRepository(Card) private entityRepo: Repository<Card>) {
         super(entityRepo);
     }
@@ -24,7 +24,8 @@ export class CardController extends CrudController<Card, CreateCardDto>(Card, Cr
 @Module({
     imports: [TypeOrmModule.forFeature([Card])],
     controllers: [CardController],
-    providers: [CardService]
+    providers: [CardService],
+    exports: [CardService]
 })
 
 

@@ -28,7 +28,7 @@ export class LineUp extends BaseDbEntity {
     @ManyToOne(() => Manager)
     manager?: Manager;
 
-    @Column({ type: 'enum', enum: HomeOrAway, default: 'home' })
+    @Column({ type: 'enum', enum: HomeOrAway, default: HomeOrAway.HOME })
     teamType!: HomeOrAway;
 
     @OneToMany(() => PlayerLineUp, playerLineUp => playerLineUp.lineup)

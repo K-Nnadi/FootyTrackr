@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class TeamService extends CrudRepoAdapter<Team, CreateTeamDto> {
+export class TeamService extends CrudRepoAdapter<Team, CreateTeamDto> {
   constructor(@InjectRepository(Team) private entityRepo: Repository<Team>) {
     super(entityRepo);
   }
@@ -24,7 +24,8 @@ export class TeamController extends CrudController<Team, CreateTeamDto>(Team, Cr
 @Module({
   imports: [TypeOrmModule.forFeature([Team])],
   controllers: [TeamController],
-  providers: [TeamService]
+  providers: [TeamService],
+  exports: [TeamService]
 })
 
 

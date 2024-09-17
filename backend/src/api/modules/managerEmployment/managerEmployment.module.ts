@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class ManagerEmploymentService extends CrudRepoAdapter<ManagerEmployment, CreateManagerEmploymentDto> {
+export class ManagerEmploymentService extends CrudRepoAdapter<ManagerEmployment, CreateManagerEmploymentDto> {
   constructor(@InjectRepository(ManagerEmployment) private entityRepo: Repository<ManagerEmployment>) {
     super(entityRepo);
   }
@@ -24,7 +24,8 @@ export class ManagerEmploymentController extends CrudController<ManagerEmploymen
 @Module({
   imports: [TypeOrmModule.forFeature([ManagerEmployment])],
   controllers: [ManagerEmploymentController],
-  providers: [ManagerEmploymentService]
+  providers: [ManagerEmploymentService],
+  exports: [ManagerEmploymentService]
 })
 
 

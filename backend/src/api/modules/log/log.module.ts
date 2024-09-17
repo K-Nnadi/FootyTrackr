@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class LogService extends CrudRepoAdapter<Log, CreateLogDto> {
+export class LogService extends CrudRepoAdapter<Log, CreateLogDto> {
     constructor(@InjectRepository(Log) private entityRepo: Repository<Log>) {
         super(entityRepo);
     }
@@ -24,7 +24,8 @@ export class LogController extends CrudController<Log, CreateLogDto>(Log, Create
 @Module({
     imports: [TypeOrmModule.forFeature([Log])],
     controllers: [LogController],
-    providers: [LogService]
+    providers: [LogService],
+    exports: [LogService]
 })
 
 

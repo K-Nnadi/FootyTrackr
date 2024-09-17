@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class TeamCompetitionSeasonservice extends CrudRepoAdapter<TeamCompetitionSeason, CreateTeamCompetitionSeasonDto> {
+export class TeamCompetitionSeasonservice extends CrudRepoAdapter<TeamCompetitionSeason, CreateTeamCompetitionSeasonDto> {
   constructor(@InjectRepository(TeamCompetitionSeason) private entityRepo: Repository<TeamCompetitionSeason>) {
     super(entityRepo);
   }
@@ -24,7 +24,8 @@ export class TeamCompetitionSeasonController extends CrudController<TeamCompetit
 @Module({
   imports: [TypeOrmModule.forFeature([TeamCompetitionSeason])],
   controllers: [TeamCompetitionSeasonController],
-  providers: [TeamCompetitionSeasonservice]
+  providers: [TeamCompetitionSeasonservice],
+  exports: [TeamCompetitionSeasonservice]
 })
 
 

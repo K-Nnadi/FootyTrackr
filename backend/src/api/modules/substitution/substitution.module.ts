@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class SubstitutionService extends CrudRepoAdapter<Substitution, CreateSubstitutionDto> {
+export class SubstitutionService extends CrudRepoAdapter<Substitution, CreateSubstitutionDto> {
     constructor(@InjectRepository(Substitution) private entityRepo: Repository<Substitution>) {
         super(entityRepo);
     }
@@ -24,7 +24,8 @@ export class SubstitutionController extends CrudController<Substitution, CreateS
 @Module({
     imports: [TypeOrmModule.forFeature([Substitution])],
     controllers: [SubstitutionController],
-    providers: [SubstitutionService]
+    providers: [SubstitutionService],
+    exports: [SubstitutionService]
 })
 
 

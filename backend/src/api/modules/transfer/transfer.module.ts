@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class TransferService extends CrudRepoAdapter<Transfer, CreateTransferDto> {
+export class TransferService extends CrudRepoAdapter<Transfer, CreateTransferDto> {
   constructor(@InjectRepository(Transfer) private entityRepo: Repository<Transfer>) {
     super(entityRepo);
   }
@@ -24,7 +24,8 @@ export class TransferController extends CrudController<Transfer, CreateTransferD
 @Module({
   imports: [TypeOrmModule.forFeature([Transfer])],
   controllers: [TransferController],
-  providers: [TransferService]
+  providers: [TransferService],
+  exports: [TransferService]
 })
 
 

@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class PlayerLineUpService extends CrudRepoAdapter<PlayerLineUp, CreatePlayerLineUpDto> {
+export class PlayerLineUpService extends CrudRepoAdapter<PlayerLineUp, CreatePlayerLineUpDto> {
   constructor(@InjectRepository(PlayerLineUp) private entityRepo: Repository<PlayerLineUp>) {
     super(entityRepo);
   }
@@ -24,7 +24,8 @@ export class PlayerLineUpController extends CrudController<PlayerLineUp, CreateP
 @Module({
   imports: [TypeOrmModule.forFeature([PlayerLineUp])],
   controllers: [PlayerLineUpController],
-  providers: [PlayerLineUpService]
+  providers: [PlayerLineUpService],
+  exports: [PlayerLineUpService]
 })
 
 

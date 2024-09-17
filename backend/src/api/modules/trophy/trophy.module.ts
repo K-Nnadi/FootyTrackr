@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class TrophyService extends CrudRepoAdapter<Trophy, CreateTrophyDto> {
+export class TrophyService extends CrudRepoAdapter<Trophy, CreateTrophyDto> {
   constructor(@InjectRepository(Trophy) private entityRepo: Repository<Trophy>) {
     super(entityRepo);
   }
@@ -24,7 +24,8 @@ export class TrophyController extends CrudController<Trophy, CreateTrophyDto>(Tr
 @Module({
   imports: [TypeOrmModule.forFeature([Trophy])],
   controllers: [TrophyController],
-  providers: [TrophyService]
+  providers: [TrophyService],
+  exports: [TrophyService]
 })
 
 

@@ -17,12 +17,15 @@ export class Manager extends BaseDbEntity{
     @Column()
     nationality!: string
 
-    @Column()
-    currentTeam?: number
+    @Column("int", { array: true })
+    teamIds?: number[]
+
+    @OneToMany(() => Team, team => team.manager)
+    teams?: Team[]
 
     @OneToMany(() => ManagerEmployment, employment => employment.manager)
     employments!: ManagerEmployment[];
 }
 
 
-export class CreateManagerDto extends PickType(Manager, ["name", "nickname","nationality", "currentTeam"] as const) {}
+export class CreateManagerDto extends PickType(Manager, ["name", "nickname","nationality", "teamIds"] as const) {}

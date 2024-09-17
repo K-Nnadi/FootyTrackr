@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class GenericTokenService extends CrudRepoAdapter<GenericToken, CreateGenericTokenDto> {
+export class GenericTokenService extends CrudRepoAdapter<GenericToken, CreateGenericTokenDto> {
     constructor(@InjectRepository(GenericToken) private entityRepo: Repository<GenericToken>) {
         super(entityRepo);
     }
@@ -24,7 +24,8 @@ export class GenericTokenController extends CrudController<GenericToken, CreateG
 @Module({
     imports: [TypeOrmModule.forFeature([GenericToken])],
     controllers: [GenericTokenController],
-    providers: [GenericTokenService]
+    providers: [GenericTokenService],
+    exports: [GenericTokenService]
 })
 
 

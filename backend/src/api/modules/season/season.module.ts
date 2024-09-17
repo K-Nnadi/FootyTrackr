@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class SeasonService extends CrudRepoAdapter<Season, CreateSeasonDto> {
+export class SeasonService extends CrudRepoAdapter<Season, CreateSeasonDto> {
     constructor(@InjectRepository(Season) private entityRepo: Repository<Season>) {
         super(entityRepo);
     }
@@ -24,7 +24,8 @@ export class SeasonController extends CrudController<Season, CreateSeasonDto>(Se
 @Module({
     imports: [TypeOrmModule.forFeature([Season])],
     controllers: [SeasonController],
-    providers: [SeasonService]
+    providers: [SeasonService],
+    exports: [SeasonService]
 })
 
 

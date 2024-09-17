@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class LineupService extends CrudRepoAdapter<LineUp, CreateLineUpDto> {
+export class LineupService extends CrudRepoAdapter<LineUp, CreateLineUpDto> {
   constructor(@InjectRepository(LineUp) private entityRepo: Repository<LineUp>) {
     super(entityRepo);
   }
@@ -24,7 +24,8 @@ export class LineupController extends CrudController<LineUp, CreateLineUpDto>(Li
 @Module({
   imports: [TypeOrmModule.forFeature([LineUp])],
   controllers: [LineupController],
-  providers: [LineupService]
+  providers: [LineupService],
+  exports: [LineupService]
 })
 
 

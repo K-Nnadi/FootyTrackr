@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class PlayerService extends CrudRepoAdapter<Player, CreatePlayerDto> {
+export class PlayerService extends CrudRepoAdapter<Player, CreatePlayerDto> {
     constructor(@InjectRepository(Player) private entityRepo: Repository<Player>) {
         super(entityRepo);
     }
@@ -24,7 +24,8 @@ export class PlayerController extends CrudController<Player, CreatePlayerDto>(Pl
 @Module({
     imports: [TypeOrmModule.forFeature([Player])],
     controllers: [PlayerController],
-    providers: [PlayerService]
+    providers: [PlayerService],
+    exports: [PlayerService]
 })
 
 

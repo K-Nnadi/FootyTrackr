@@ -24,7 +24,8 @@ export class UserController extends CrudController<User, CreateUserDto>(User, Cr
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
   controllers: [UserController],
-  providers: [UserService]
+  providers: [UserService],
+  exports: [UserService]
 })
 
 

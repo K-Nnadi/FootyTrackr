@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class FixtureRefereeService extends CrudRepoAdapter<FixtureReferee, CreateFixtureRefereeDto> {
+export class FixtureRefereeService extends CrudRepoAdapter<FixtureReferee, CreateFixtureRefereeDto> {
   constructor(@InjectRepository(FixtureReferee) private entityRepo: Repository<FixtureReferee>) {
     super(entityRepo);
   }
@@ -24,7 +24,8 @@ export class FixtureRefereeController extends CrudController<FixtureReferee, Cre
 @Module({
   imports: [TypeOrmModule.forFeature([FixtureReferee])],
   controllers: [FixtureRefereeController],
-  providers: [FixtureRefereeService]
+  providers: [FixtureRefereeService],
+  exports: [FixtureRefereeService]
 })
 
 

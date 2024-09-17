@@ -8,7 +8,7 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-class AddressService extends CrudRepoAdapter<Address, CreateAddressDto> {
+export class AddressService extends CrudRepoAdapter<Address, CreateAddressDto> {
   constructor(@InjectRepository(Address) private entityRepo: Repository<Address>) {
     super(entityRepo);
   }
@@ -24,7 +24,8 @@ export class AddressController extends CrudController<Address, CreateAddressDto>
 @Module({
   imports: [TypeOrmModule.forFeature([Address])],
   controllers: [AddressController],
-  providers: [AddressService]
+  providers: [AddressService],
+  exports: [AddressService]
 })
 
 
