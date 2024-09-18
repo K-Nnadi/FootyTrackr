@@ -1,6 +1,6 @@
 import {Injectable, Module} from '@nestjs/common';
 import {InjectRepository, TypeOrmModule} from "@nestjs/typeorm";
-import {CreateSubstitutionDto, Substitution} from "./substitution";
+import {CreateSubstitutionDTO, Substitution} from "./substitution";
 import {CrudController} from "@iWatchFootball/base-tools/crud/crud.controller";
 import {AuthedController} from "@iWatchFootball/base-tools/decorators/controller.decorator";
 import {CrudRepoAdapter} from "@iWatchFootball/base-tools/crud/crud.repo.adapter";
@@ -8,14 +8,14 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-export class SubstitutionService extends CrudRepoAdapter<Substitution, CreateSubstitutionDto> {
+export class SubstitutionService extends CrudRepoAdapter<Substitution, CreateSubstitutionDTO> {
     constructor(@InjectRepository(Substitution) private entityRepo: Repository<Substitution>) {
         super(entityRepo);
     }
 }
 
 @AuthedController('substitution')
-export class SubstitutionController extends CrudController<Substitution, CreateSubstitutionDto>(Substitution, CreateSubstitutionDto) {
+export class SubstitutionController extends CrudController<Substitution, CreateSubstitutionDTO>(Substitution, CreateSubstitutionDTO) {
     constructor(private service: SubstitutionService) {
         super(service)
     }

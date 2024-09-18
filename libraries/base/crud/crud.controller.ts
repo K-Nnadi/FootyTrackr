@@ -13,7 +13,7 @@ import {
     Req,
     Type
 } from '@nestjs/common';
-import {ApiBody, ApiOperation, ApiPropertyOptional} from '@nestjs/swagger';
+import {ApiBody, ApiOkResponse, ApiOperation, ApiPropertyOptional} from '@nestjs/swagger';
 import {CrudInterface} from "./crud.interface";
 import {FastifyRequest} from "fastify";
 import {QS_OPTIONS} from "./query.options";
@@ -55,20 +55,23 @@ export const CrudController = <T, U>(entity: any, createDTO: any): Type<Controll
         }
 
         @Post()
-        @ApiOperation({operationId: `create`})
+        @ApiOperation({summary: `Create ${entity.name}`, operationId: `create`})
+        @ApiOkResponse({type: entity})
         @ApiBody({type: createDTO})
         create(@Body() entity: typeof createDTO) {
             return this.service.create(entity);
         }
 
         @Get()
-        @ApiOperation({operationId: `getAll`})
+        @ApiOperation({summary: `Get all ${entity.name}'s`, operationId: `getAll`})
+        @ApiOkResponse({type: entity, isArray: true})
         getAll() {
             return this.service.getAll();
         }
 
         @Get('query')
-        @ApiOperation({operationId: `getQuery`})
+        @ApiOperation({summary: `Get all ${entity.name}'s`, operationId: `getQuery`})
+        @ApiOkResponse({type: entity, isArray: true})
         getQuery(@Req() request: FastifyRequest,
                  @Query('skip', new DefaultValuePipe(0), ParseIntPipe) skip: number,
                  @Query('take', new DefaultValuePipe(100), ParseIntPipe) take: number,
@@ -82,20 +85,21 @@ export const CrudController = <T, U>(entity: any, createDTO: any): Type<Controll
         }
 
         @Get(':id')
-        @ApiOperation({operationId: `getOne`})
+        @ApiOperation({summary: `Get one ${entity.name}`, operationId: `getOne`})
+        @ApiOkResponse({type: entity})
         getOne(@Param('id') id: number) {
             return this.service.getOne(+id);
         }
 
         @Patch(':id')
-        @ApiOperation({operationId: `updateOne`})
+        @ApiOperation({summary: `Update one ${entity.name}`, operationId: `updateOne`})
         @ApiBody({type: entity})
         update(@Param('id') id: number, @Body() entity: DeepPartial<T>) {
             return this.service.update(+id, entity);
         }
 
         @Delete(':id')
-        @ApiOperation({operationId: `deleteOne`})
+        @ApiOperation({summary: `Delete one ${entity.name}`, operationId: `deleteOne`})
         delete(@Param('id') id: number) {
             return this.service.delete(+id);
         }

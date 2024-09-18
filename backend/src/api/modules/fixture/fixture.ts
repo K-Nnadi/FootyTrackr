@@ -59,4 +59,4 @@ export class Fixture extends BaseDbEntity {
 }
 
 
-export class CreateFixtureDto extends PickType(Fixture, ["homeTeamId", "awayTeamId", "competitionId", "stadiumId", "date", "attendance", "status", "seasonId"] as const) {}
+export class CreateFixtureDTO extends PickType(Fixture, ["homeTeamId", "awayTeamId", "competitionId", "stadiumId", "date", "attendance", "status", "seasonId"] as const) {}

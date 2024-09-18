@@ -1,6 +1,6 @@
 import {Injectable, Module} from '@nestjs/common';
 import {InjectRepository, TypeOrmModule} from "@nestjs/typeorm";
-import {CreateStadiumDto, Stadium} from "./stadium";
+import {CreateStadiumDTO, Stadium} from "./stadium";
 import {CrudController} from "@iWatchFootball/base-tools/crud/crud.controller";
 import {AuthedController} from "@iWatchFootball/base-tools/decorators/controller.decorator";
 import {CrudRepoAdapter} from "@iWatchFootball/base-tools/crud/crud.repo.adapter";
@@ -8,14 +8,14 @@ import {Repository} from "typeorm";
 
 
 @Injectable()
-export class StadiumService extends CrudRepoAdapter<Stadium, CreateStadiumDto> {
+export class StadiumService extends CrudRepoAdapter<Stadium, CreateStadiumDTO> {
   constructor(@InjectRepository(Stadium) private entityRepo: Repository<Stadium>) {
     super(entityRepo);
   }
 }
 
 @AuthedController('stadium')
-export class StadiumController extends CrudController<Stadium, CreateStadiumDto>(Stadium, CreateStadiumDto){
+export class StadiumController extends CrudController<Stadium, CreateStadiumDTO>(Stadium, CreateStadiumDTO){
   constructor(private service: StadiumService) {
     super(service)
   }

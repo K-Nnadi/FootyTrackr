@@ -18,4 +18,4 @@ export class Trophy extends BaseDbEntity {
     competition!: Competition;
 }
 
-export class CreateTrophyDto extends PickType(Trophy, ['name', 'description', 'yearIntroduced'] as const) {}
+export class CreateTrophyDTO extends PickType(Trophy, ['name', 'description', 'yearIntroduced'] as const) {}

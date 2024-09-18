@@ -2,10 +2,11 @@ import {NestFactory} from '@nestjs/core';
 import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
 import {FastifyAdapter, NestFastifyApplication} from "@nestjs/platform-fastify";
 import {NestApplicationOptions} from "@nestjs/common";
+import {writeFileSync} from "fs";
 
 
 export const SWAGGER_DOCUMENT =  new DocumentBuilder()
-    .setTitle('Football Logger API')
+    .setTitle('I Watch Football API')
     .setDescription('The API Docs for I Watch Football')
     .setVersion('1.0')
     .build();
@@ -21,6 +22,8 @@ export async function GenericBootstrap(module: any, port: number) {
 
 
     const document = SwaggerModule.createDocument(app, SWAGGER_DOCUMENT, {ignoreGlobalPrefix: false});
-    SwaggerModule.setup('backend-docs', app, document);
+    SwaggerModule.setup('api-docs', app, document);
+    writeFileSync('./openapi.json', JSON.stringify(document, null, 2));
+
     await app.listen(port);
 }

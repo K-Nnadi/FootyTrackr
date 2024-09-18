@@ -37,4 +37,4 @@ export class Goal extends BaseDbEntity {
     penalty?: boolean;
 }
 
-export class CreateGoalDto extends PickType(Goal, ["fixtureId", "scorerId", "assistantId", "teamId", "minute", "ownGoal", "penalty"] as const) {}
+export class CreateGoalDTO extends PickType(Goal, ["fixtureId", "scorerId", "assistantId", "teamId", "minute", "ownGoal", "penalty"] as const) {}

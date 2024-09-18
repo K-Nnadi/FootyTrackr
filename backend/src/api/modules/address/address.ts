@@ -33,5 +33,5 @@ export class Address extends BaseDbEntity {
 
 }
 
-export class CreateAddressDto extends PickType(Address, ["address1", "address2", "townOrCity", "postcode", "location"] as const) {
+export class CreateAddressDTO extends PickType(Address, ["address1", "address2", "townOrCity", "postcode", "location"] as const) {
 }

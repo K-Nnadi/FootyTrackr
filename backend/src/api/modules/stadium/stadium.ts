@@ -35,4 +35,4 @@ export class Stadium extends BaseDbEntity{
     fixtures?: Fixture[]
 }
 
-export class CreateStadiumDto extends PickType(Stadium, ["name", "opened", "teamIds", "capacity", "addressId"] as const){}
+export class CreateStadiumDTO extends PickType(Stadium, ["name", "opened", "teamIds", "capacity", "addressId"] as const){}

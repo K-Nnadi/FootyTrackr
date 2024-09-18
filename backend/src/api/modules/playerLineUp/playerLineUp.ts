@@ -33,4 +33,4 @@ export class PlayerLineUp extends BaseDbEntity {
 }
 
 
-export class CreatePlayerLineUpDto extends PickType(PlayerLineUp, [ "lineupId" , "playerId" , "isCaptain" , "positionId", "isStarting"] as const) {}
+export class CreatePlayerLineUpDTO extends PickType(PlayerLineUp, [ "lineupId" , "playerId" , "isCaptain" , "positionId", "isStarting"] as const) {}

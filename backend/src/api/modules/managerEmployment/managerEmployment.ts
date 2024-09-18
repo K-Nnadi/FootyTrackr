@@ -32,4 +32,4 @@ export class ManagerEmployment extends BaseDbEntity {
 
 
 
-export class CreateManagerEmploymentDto extends PickType(ManagerEmployment, [] as const) {}
+export class CreateManagerEmploymentDTO extends PickType(ManagerEmployment, [] as const) {}

@@ -22,4 +22,4 @@ export class Log extends BaseDbEntity{
     @Column()
     competition!: string
 }
-export class CreateLogDto extends PickType(Log, ["home", "away", "stadium", "date", "competition"] as const) {}
+export class CreateLogDTO extends PickType(Log, ["home", "away", "stadium", "date", "competition"] as const) {}
