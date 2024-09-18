@@ -42,7 +42,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Address's",
+        "summary": "Get all Addresss",
         "parameters": [],
         "responses": {
           "200": {
@@ -75,7 +75,7 @@
     "/address/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Address's",
+        "summary": "Get all Addresss",
         "parameters": [
           {
             "name": "skip",
@@ -304,7 +304,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Card's",
+        "summary": "Get all Cards",
         "parameters": [],
         "responses": {
           "200": {
@@ -337,7 +337,7 @@
     "/card/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Card's",
+        "summary": "Get all Cards",
         "parameters": [
           {
             "name": "skip",
@@ -566,7 +566,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Competition's",
+        "summary": "Get all Competitions",
         "parameters": [],
         "responses": {
           "200": {
@@ -599,7 +599,7 @@
     "/competition/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Competition's",
+        "summary": "Get all Competitions",
         "parameters": [
           {
             "name": "skip",
@@ -828,7 +828,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Fixture's",
+        "summary": "Get all Fixtures",
         "parameters": [],
         "responses": {
           "200": {
@@ -861,7 +861,7 @@
     "/fixture/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Fixture's",
+        "summary": "Get all Fixtures",
         "parameters": [
           {
             "name": "skip",
@@ -1090,7 +1090,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all FixtureReferee's",
+        "summary": "Get all FixtureReferees",
         "parameters": [],
         "responses": {
           "200": {
@@ -1123,7 +1123,7 @@
     "/fixtureReferee/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all FixtureReferee's",
+        "summary": "Get all FixtureReferees",
         "parameters": [
           {
             "name": "skip",
@@ -1352,7 +1352,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all GenericToken's",
+        "summary": "Get all GenericTokens",
         "parameters": [],
         "responses": {
           "200": {
@@ -1385,7 +1385,7 @@
     "/genericToken/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all GenericToken's",
+        "summary": "Get all GenericTokens",
         "parameters": [
           {
             "name": "skip",
@@ -1614,7 +1614,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Goal's",
+        "summary": "Get all Goals",
         "parameters": [],
         "responses": {
           "200": {
@@ -1647,7 +1647,7 @@
     "/goal/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Goal's",
+        "summary": "Get all Goals",
         "parameters": [
           {
             "name": "skip",
@@ -1876,7 +1876,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Injury's",
+        "summary": "Get all Injurys",
         "parameters": [],
         "responses": {
           "200": {
@@ -1909,7 +1909,7 @@
     "/injury/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Injury's",
+        "summary": "Get all Injurys",
         "parameters": [
           {
             "name": "skip",
@@ -2138,7 +2138,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all LineUp's",
+        "summary": "Get all LineUps",
         "parameters": [],
         "responses": {
           "200": {
@@ -2171,7 +2171,7 @@
     "/lineUp/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all LineUp's",
+        "summary": "Get all LineUps",
         "parameters": [
           {
             "name": "skip",
@@ -2400,7 +2400,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Log's",
+        "summary": "Get all Logs",
         "parameters": [],
         "responses": {
           "200": {
@@ -2433,7 +2433,7 @@
     "/log/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Log's",
+        "summary": "Get all Logs",
         "parameters": [
           {
             "name": "skip",
@@ -2662,7 +2662,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Manager's",
+        "summary": "Get all Managers",
         "parameters": [],
         "responses": {
           "200": {
@@ -2695,7 +2695,7 @@
     "/manager/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Manager's",
+        "summary": "Get all Managers",
         "parameters": [
           {
             "name": "skip",
@@ -2924,7 +2924,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all ManagerEmployment's",
+        "summary": "Get all ManagerEmployments",
         "parameters": [],
         "responses": {
           "200": {
@@ -2957,7 +2957,7 @@
     "/managerEmployment/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all ManagerEmployment's",
+        "summary": "Get all ManagerEmployments",
         "parameters": [
           {
             "name": "skip",
@@ -3186,7 +3186,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Player's",
+        "summary": "Get all Players",
         "parameters": [],
         "responses": {
           "200": {
@@ -3219,7 +3219,7 @@
     "/player/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Player's",
+        "summary": "Get all Players",
         "parameters": [
           {
             "name": "skip",
@@ -3448,7 +3448,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all PlayerLineUp's",
+        "summary": "Get all PlayerLineUps",
         "parameters": [],
         "responses": {
           "200": {
@@ -3481,7 +3481,7 @@
     "/playerLineUp/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all PlayerLineUp's",
+        "summary": "Get all PlayerLineUps",
         "parameters": [
           {
             "name": "skip",
@@ -3710,7 +3710,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Position's",
+        "summary": "Get all Positions",
         "parameters": [],
         "responses": {
           "200": {
@@ -3743,7 +3743,7 @@
     "/position/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Position's",
+        "summary": "Get all Positions",
         "parameters": [
           {
             "name": "skip",
@@ -3972,7 +3972,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Referee's",
+        "summary": "Get all Referees",
         "parameters": [],
         "responses": {
           "200": {
@@ -4005,7 +4005,7 @@
     "/referee/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Referee's",
+        "summary": "Get all Referees",
         "parameters": [
           {
             "name": "skip",
@@ -4234,7 +4234,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Season's",
+        "summary": "Get all Seasons",
         "parameters": [],
         "responses": {
           "200": {
@@ -4267,7 +4267,7 @@
     "/season/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Season's",
+        "summary": "Get all Seasons",
         "parameters": [
           {
             "name": "skip",
@@ -4496,7 +4496,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Stadium's",
+        "summary": "Get all Stadiums",
         "parameters": [],
         "responses": {
           "200": {
@@ -4529,7 +4529,7 @@
     "/stadium/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Stadium's",
+        "summary": "Get all Stadiums",
         "parameters": [
           {
             "name": "skip",
@@ -4758,7 +4758,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Substitution's",
+        "summary": "Get all Substitutions",
         "parameters": [],
         "responses": {
           "200": {
@@ -4791,7 +4791,7 @@
     "/substitution/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Substitution's",
+        "summary": "Get all Substitutions",
         "parameters": [
           {
             "name": "skip",
@@ -5020,7 +5020,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Team's",
+        "summary": "Get all Teams",
         "parameters": [],
         "responses": {
           "200": {
@@ -5053,7 +5053,7 @@
     "/team/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Team's",
+        "summary": "Get all Teams",
         "parameters": [
           {
             "name": "skip",
@@ -5282,7 +5282,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all TeamCompetitionSeason's",
+        "summary": "Get all TeamCompetitionSeasons",
         "parameters": [],
         "responses": {
           "200": {
@@ -5315,7 +5315,7 @@
     "/teamCompetitionSeason/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all TeamCompetitionSeason's",
+        "summary": "Get all TeamCompetitionSeasons",
         "parameters": [
           {
             "name": "skip",
@@ -5544,7 +5544,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Transfer's",
+        "summary": "Get all Transfers",
         "parameters": [],
         "responses": {
           "200": {
@@ -5577,7 +5577,7 @@
     "/transfer/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Transfer's",
+        "summary": "Get all Transfers",
         "parameters": [
           {
             "name": "skip",
@@ -5806,7 +5806,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all Trophy's",
+        "summary": "Get all Trophys",
         "parameters": [],
         "responses": {
           "200": {
@@ -5839,7 +5839,7 @@
     "/trophy/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all Trophy's",
+        "summary": "Get all Trophys",
         "parameters": [
           {
             "name": "skip",
@@ -6068,7 +6068,7 @@
       },
       "get": {
         "operationId": "getAll",
-        "summary": "Get all User's",
+        "summary": "Get all Users",
         "parameters": [],
         "responses": {
           "200": {
@@ -6101,7 +6101,7 @@
     "/user/query": {
       "get": {
         "operationId": "getQuery",
-        "summary": "Get all User's",
+        "summary": "Get all Users",
         "parameters": [
           {
             "name": "skip",

@@ -9,7 +9,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "start:dev": "ts-node-dev --files src/main.ts",
+    "start:dev": "cross-env NODE_ENV=development ts-node-dev --files src/main.ts",
     "generate:api": "orval",
     "migrate": "ts-node ./node_modules/typeorm/cli.js migration:generate src/shared/migrations/generatedCli  -d src/shared/ormconfig.ts",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run -d src/shared/ormconfig.ts",

@@ -58,6 +58,7 @@ export class Auth {
         const [user] = await this.userService.getQuery({
             where: {email: auth.email},
         }) || [];
+        console.log('user login', user);
 
         const passwordMatch = await compare(auth.password, user.password);
 
@@ -101,7 +102,6 @@ export class Auth {
 
 @Module({
     imports: [UserModule, LogModule],
-    providers: [],
     controllers: [Auth]
 })
 export class AuthModule {

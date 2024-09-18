@@ -1,6 +1,8 @@
 import { join } from 'path';
 import { DataSource } from 'typeorm';
-require('dotenv').config();
+import { config } from 'dotenv';
+config(); // This ensures .env variables are loaded early
+
 
 const entities = [join(__dirname, '../../', 'src/api/modules/**/*{.ts,.js}')];
 console.log('PATH:',entities);
