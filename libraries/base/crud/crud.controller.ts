@@ -63,14 +63,14 @@ export const CrudController = <T, U>(entity: any, createDTO: any): Type<Controll
         }
 
         @Get()
-        @ApiOperation({summary: `Get all ${entity.name}'s`, operationId: `getAll`})
+        @ApiOperation({summary: `Get all ${entity.name}s`, operationId: `getAll`})
         @ApiOkResponse({type: entity, isArray: true})
         getAll() {
             return this.service.getAll();
         }
 
         @Get('query')
-        @ApiOperation({summary: `Get all ${entity.name}'s`, operationId: `getQuery`})
+        @ApiOperation({summary: `Get all ${entity.name}s`, operationId: `getQuery`})
         @ApiOkResponse({type: entity, isArray: true})
         getQuery(@Req() request: FastifyRequest,
                  @Query('skip', new DefaultValuePipe(0), ParseIntPipe) skip: number,
