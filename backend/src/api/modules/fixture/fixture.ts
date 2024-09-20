@@ -8,6 +8,7 @@ import {Goal} from "../goal/goal";
 import {FixtureReferee} from "../fixtureReferee/fixtureReferee";
 import {LineUp} from "../lineUp/lineUp";
 import {TeamCompetitionSeason} from "../teamCompetitionSeason/teamCompetitionSeason";
+import {Log} from "../log/log";
 
 @Entity('fixture')
 export class Fixture extends BaseDbEntity {
@@ -56,6 +57,8 @@ export class Fixture extends BaseDbEntity {
     @Column({ nullable: true })
     attendance?: number;
 
+    @OneToMany(() => Log, log => log.fixture)
+    logs!: Log[]
 }
 
 
