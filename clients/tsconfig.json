@@ -1,0 +1,9 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"composite": true,
+		"noEmit": false,
+		"outDir": "../../../.moon/cache/types/packages/link-tracker/link-tracker-client"
+	},
+	"references": []
+}

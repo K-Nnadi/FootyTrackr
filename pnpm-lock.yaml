@@ -214,6 +214,8 @@ importers:
         specifier: ^5.1.3
         version: 5.1.3
 
+  clients: {}
+
   frontend/ui:
     dependencies:
       '@mantine/carousel':

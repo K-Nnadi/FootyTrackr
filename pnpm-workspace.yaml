@@ -2,3 +2,4 @@ packages:
   - 'libraries/*'
   - 'frontend/*'
   - 'backend'
+  - 'clients'
